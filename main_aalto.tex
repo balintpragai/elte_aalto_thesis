@@ -182,7 +182,12 @@
 %% * Don't use amsbsym or amsfonts. The symbols [and macros] there are defined in
 %%   newtxmath and so clash if used.
 %\usepackage[options]{amsmath}
-%\usepackage{amsthm}
+
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{graphicx}
+
 
 %% DO NOT MOVE OR REMOVE \setupthesisfonts
 \setupthesisfonts
@@ -190,12 +195,32 @@
 %%
 %% Add here the packges you need
 %%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[latin2]{inputenc}
+%\usepackage{t1enc}
+%\usepackage[english]{babel}
+%\usepackage{anysize}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+%\usepackage {xcolor}  
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float} 
+\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{tabularray}
 
 
 %% For tables that span multiple pages; used to split a paraphrasing example in
 %% the appendix. If you don't need it, remove it.
-\usepackage{longtable}
+%\usepackage{longtable}
 
 %% A package for generating Creative Commons copyright terms. If you don't use
 %% the CC copyright terms, remove it, since otherwise undesired information may
@@ -203,6 +228,20 @@
 \usepackage[type={CC}, modifier={by-nc-sa}, version={4.0}]{doclicense}
 %% Find below three examples for typesetting the CC license notice.
 
+\definecolor{Gray}{rgb}{0.67,0.67,0.67}
+
+\usepackage{ntheorem}
+\theoremstyle{change}
+\makeatletter
+\theoremseparator{.}
+\newtheoremstyle{theoremstyle}%
+{\item[\hskip\labelsep\theorem@headerfont
+            ##2.\ ##1\theorem@separator]}%
+{\item[\hskip\labelsep\theorem@headerfont
+            ##2.\ ##1\theorem@separator\ (##3)]}%
+\theoremstyle{theoremstyle}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{defi}[theorem]{Definiton}
 
 %% Edit to conform to your degree programme
 %% Capitalise the words in the name of the degree programme: it's a name
@@ -375,9 +414,7 @@
 %% Thesis keywords:
 %% Note! The keywords are separated using the \spc macro.
 %%
-\keywords{For keywords choose concepts that are central to your 
-thesis. Keywords are written in lowercase with the exception of certain
-abbreviations and proper nouns. E.g.\spc resistor\spc resistance\spc temperature}
+\keywords{Ethical data economy, Ethical data market, privacy-preserving data ontribution system, Merkle tree, Wibson protocol}
 %%
 
 %% The abstract text. This text in one paragraph is included in the metadata of
@@ -385,23 +422,7 @@ abbreviations and proper nouns. E.g.\spc resistor\spc resistance\spc temperature
 %% abstract rewrite it in the abstarct environment as described below.
 %%
 \thesisabstract{%
-The abstract is a short description of the essential contents of the thesis
-usually in one paragraph: what was studied and how and what were the main
-findings. For a Finnish thesis, the abstract should be written in both Finnish
-and English; for a Swedish thesis, in Swedish and English. The abstracts for
-English theses written by Finnish or Swedish speakers should be written in
-English and either in Finnish or in Swedish, depending on the student’s language
-of basic education. Students educated in languages other than Finnish or Swedish
-write the abstract only in English. Students may include a second or third
-abstract in their native language, if they wish. 
-The abstract text of this thesis is written on the readable abstract page as
-well as into the pdf file's metadata via the thesisabstract macro (see the 
-comment in the TeX file). Write here the text that goes into the metadata. The 
-metadata cannot contain special characters, linebreak or paragraph break 
-characters, so these must not be used here. If your abstract does not contain 
-special characters and it does not require paragraphs, you may take advantage of
-the abstracttext macro (see the comment in the TeX file below). Otherwise, the 
-metadata abstract text must be identical to the text on the abstract page.
+Data became an increasingly sought-after commodity with the growth of AI and Machine Learning models, yet the profits rarely go to the users, who produce the data. Researchers have called for more ethical, human-centric practices and have laid out some possible frameworks for an ethical data economy. The aim of this thesis was to create a contribution system that would work well in an ethical data market. Using Merkle trees, this contribution system keeps the identity and data of the users safe, while still holding up to the FACT principles best to its ability.
 }
 
 %% You can prevent LaTeX from writing into the xmpdata file (it contains all the 
@@ -439,30 +460,7 @@ metadata abstract text must be identical to the text on the abstract page.
 %% well.
 %%
 \begin{abstractpage}[english]
-  The abstract is a short description of the essential contents of the thesis,
-  usually in one paragraph: what was studied and how and what were the main
-  findings.
-
-  For a Finnish thesis, the abstract should be written in both Finnish and
-  English; for a Swedish thesis, in Swedish and English. The abstracts for
-  English theses written by Finnish or Swedish speakers should be written in
-  English and either in Finnish or in Swedish, depending on the student’s
-  language of basic education. Students educated in languages other than Finnish
-  or Swedish write the abstract only in English. Students may include a second
-  or third abstract in their native language, if they wish.
-
-  The abstract text of this thesis is written on the readable abstract page as
-  well as into the pdf file's metadata via the \verb+\thesisabstract+ macro
-  (see comment in this \TeX{} file above). The metadata cannot contain special 
-  characters, word hyphenations, linebreak or paragraph break characters, so 
-  these must not be used there. Write here the text that goes onto the readable 
-  abstract page. You can have special characters, linebreaks, and paragraphs 
-  here. Otherwise, this abstract text must be identical to the metadata abstract 
-  text.
-  
-  If your abstract does not contain special characters and it does not require
-  paragraphs, you may take advantage of the \verb+\abstracttext+ macro (see the
-  comment in this \TeX{} file below).
+Data became an increasingly sought-after commodity with the growth of AI and Machine Learning models, yet the profits rarely go to the users, who produce the data. Researchers have called for more ethical, human-centric practices and have laid out some possible frameworks for an ethical data economy. The aim of this thesis was to create a contribution system that would work well in an ethical data market. Using Merkle trees, this contribution system keeps the identity and data of the users safe, while still holding up to the FACT principles best to its ability.
 \end{abstractpage}
 
 %% The text in the \thesisabstract macro is stored in the macro \abstractext, so
@@ -485,16 +483,12 @@ metadata abstract text must be identical to the text on the abstract page.
 %% This section is optional. Remove it if you do not want a preface.
 \mysection{Preface}
 %\mysection{Esipuhe}
-I want to thank Professor Pirjo Professor and my instructors Dr Alan Advisor and
-Ms Elsa Expert for their guidance.
-
-I also want to thank my partner for keeping me sane and alive.
+I would like to thank my two my supervisors for their guidance. I want to thank Carlos Sarraute for partially advising my thesis. I owe thanks to Johanna Viio Löfberg for advising my thesis in the remaining time and the Fixmeapp academic team for working with me and aiding each others' research.
+Finally, I would like to thank my friends, family and especially my girlfriend for supporting me and for giving me the strength to finish this project in the short time that I had for this.
 
 \vspace{5cm}
-Otaniemi, 19 February 2026\\
+Otaniemi, 29 May 2026\\
 
-\vspace{5mm}
-{\hfill Eddie E.\ Engineer \hspace{1cm}}
 
 %% Force a new page after the preface
 %%
@@ -504,46 +498,6 @@ Otaniemi, 19 February 2026\\
 %% Table of contents. 
 %%
 \thesistableofcontents
-
-
-%% Symbols and abbreviations
-\mysection{Symbols and abbreviations}
-
-\subsection*{Symbols}
-
-\begin{tabular}{ll}
-$\mathbf{B}$  & magnetic flux density  \\
-$c$              & speed of light in vacuum $\approx 3\times10^8$ [m/s]\\
-$\omega_{\mathrm{D}}$    & Debye frequency \\
-$\omega_{\mathrm{latt}}$ & average phonon frequency of lattice \\
-$\uparrow$       & electron spin direction up\\
-$\downarrow$     & electron spin direction down
-\end{tabular}
-
-\subsection*{Operators}
-
-\begin{tabular}{ll}
-$\nabla \times \mathbf{A}$              & curl of vectorin $\mathbf{A}$\\
-$\displaystyle\frac{\mbox{d}}{\mbox{d} t}$ & derivative with respect to 
-variable $t$\\[3mm]
-$\displaystyle\frac{\partial}{\partial t}$  & partial derivative with respect 
-to variable $t$ \\[3mm]
-$\sum_i $                       & sum over index $i$\\
-$\mathbf{A} \cdot \mathbf{B}$    & dot product of vectors $\mathbf{A}$ and 
-$\mathbf{B}$
-\end{tabular}
-
-\subsection*{Abbreviations}
-
-\begin{tabular}{ll}
-AC         & alternating current \\
-APLAC      & an object-oriented analog circuit simulator and design tool \\
-           & (originally Analysis Program for Linear Active Circuits) \\
-BCS        & Bardeen-Cooper-Schrieffer \\ %% dash between the names
-DC         & direct current \\
-TEM        & transverse eletromagnetic
-\end{tabular}
-
 
 %% \clearpage is similar to \newpage, but it also flushes the floats (figures
 %% and tables).
@@ -559,1631 +513,903 @@ TEM        & transverse eletromagnetic
 %% 
 \thispagestyle{empty}
 
-This is the template file for writing your bachelor’s, master’s or licentiate 
-thesis. The template contains parts and text to accommodate the different degree 
-levels, bachelor’s and master’s, and so it may contain parts that may not be 
-relevant to your thesis. If so, simply delete those parts in the thesis that you
-do not need. This applies particularly to the abstract pages, the list of
-symbols, the list of abbreviations, and appendices. You may also want to adjust
-the template section titles to better suit your work.
+Current versions of data privacy oftentimes are opt-out models, giving users little control over their own data. The data is instead controlled by profit oriented organizations, profiling customers, exploiting them and their information, while the user receives no benefit from it. Usually combined with corner cuttings on safety \cite{vagle2020cybersecurity}\cite{kopp2017cyber}\cite{zhang2023market}, this results in numerous cases of Personal Identifiable Information (PII) leaks \cite{dao2021alternative}, that gives way to third party bad actors to reach an exploitable audience \cite{langvardt2024media}\cite{cross2025examining}, who should have been safe otherwise.\\
+Furthermore, \cite{chen2023studying} proved, that collecting all the information (via cookies or any other ways) is not an optimal practice and the surplus of data creates storage and analysis issues.
+There is significant amount of academic work that suggest the existence of an opt-in solution to replace primarily cookies. Not only that, but also in a way that is human-centric and confines to ethical frameworks.
+This thesis is proposing a contribution system for a data market that is built on the above mentioned values, for a booking service.
+This solution is Merkle tree based, cryptographically secured system, that works in an ethical way (follows the FACT principles \cite{sohail2024data}).\\
+This chapter will further delve into the problems with current systems for data handling and data selling. In chapter two I showcase relevant literature regarding ethical data economy principles and models, data marketplace definitions and finally Merkle tree concepts with a focus on the inspiring paper of this thesis, the WibsonTree / Wibson protocol. Chapter three defines the research questions and methodology, as well as presenting relevant business cases and decisions taken while designing the proof-of-concept (PoC). Chapter four showcases the resulting PoC and Chapter five discusses the effectiveness and viability of the results and possible future directions for the project. The source code for the project will be available at the end of the thesis in the Source-code section and the provided GitHub repository.
 
-The text and comments in this template advise you how to use the template, give 
-general pointers on how to write your thesis (you must still refer to writing
-guides and converse with your advisor and/or supervisor in this regard), and
-provide the technical specifications for the layout and style of the template.
-
-\subsection{Typical content in the introduction}
-
-In principle, the introduction is like the abstract, only broader in scope, and
-more detailed. The introduction generally describes the following:
-
-%% An example of an unordered (itemised) list. Instead on the default bullet
-%% point, an endash (-- in LaTeX code) is used as the item label.
-\begin{itemize}
-	\item[--] a description of the background of the field of study, what
-	similar work others have already done, as well as an overview of the study,
-	\item[--] the goals of the study,
-	\item[--] the primary research question and the sub-problems in the line
-	of inquiry, and
-	\item[--] the scope and constraints of the study along with the main
-	concepts involved.
-\end{itemize}
-
-Although the introduction is a general description of the study, be concise and 
-avoid writing a lengthy introduction. A concise introduction need not have any 
-subsections.
+\subsection{Relevance and problem definition}
+%[Same as in intro, but further detailed on ethicalties, examples from privacy policies, EU vs USA, cookies and web hooks/web beacons, inefficiency, data leaks and their dangers, avoidability]
+Cookies and other third party services have given ways for companies to gather data for free using opaque, complex methods \cite{altaweel2015web}\cite{demir2022towards}\cite{narayanan2017princeton}\cite{veale2022adtech}. This means no return for the generator of the data (the person using the services that collect the data) to benefit of their own contribution. More over, data collected this way is provably not stored securely, giving way to misuse of information, often for nefarious purposes \cite{langvardt2024media}\cite{cross2025examining}.\\
+This means that these practices are exploitative, not transparent, fail to preserve privacy and not even optimal in most cases. These aspects are in direct contrast with many ethical frameworks, for example FACT (fairness, accuracy, confidentiality, transparency) principles \cite{sohail2024data}. Decentralized solutions, like blockchains, partially fulfill ethical requirements \cite{sansone2023blockchain}, but due to computational and infrastructural requirements are unfit for some commercial uses, such as booking services like hairdressers or manicures. They are also decentralized solutions, meaning they are not fit for a one-company business case.\\
+Academic research clearly calls for an ethical data economy \cite{koskinen2019if}\cite{koskinen2023ethical}\cite{rantanen2020ethical}\cite{rantanen2020humans}, but not many commercially viable solutions exist. Fixmeapp AB aims to design a data marketplace to address the problems above. For that it needs a contribution system that adheres to an ethical framework, like FACT, centralized, and rewards users for their data. This thesis addresses the gap with the contribution system that qualifies for these requirements and allows user contributions to be tracked in a way that makes it possible for users to be rewarded after transactions, while their data is protected. A PoC of the contribution system should be sufficient in showing the system's fitness to the task.
 
 %% In a thesis, every section/chapter starts a new page, hence the \clearpage
 \clearpage
 
 \section{Literature review}
-\subsection{Structure of the thesis}
+This thesis aims to create a framework for verifiable and incentivized data contribution system in privacy-preserving manner, to serve as a building block for an ethical data market, that can later serve as foundation for an ethical data economy. 
 
-The thesis comprises the front matter, the main matter and possible appendices.
-The front matter in the required order is:
+After describing the methodology used for reviewing pertinent past releases, this chapter introduces the relevant definitions and concepts starting with definitions in data marketplaces, data transactions and privacy.
+The review follows with showcasing the findings from the keyword scanning of applicable terms.
 
-%% An example of an unordered (itemised) list with the default bullet point
-%% label.
-\begin{itemize}
-	\item a cover page,
-	\item a page containing copyright information,
-	\item the abstract page(s),
-	\item an optional preface, and
-	\item a table of contents.
-\end{itemize}
-
-If the thesis contains mathematical equations, give the list of symbols used to 
-represent various quantities along with the mathematical operators used.
-The list must contain all the abbreviations used as well. Note that lists of
-figures and tables are not required.
-
-The main matter, i.e. the actual thesis, begins after the list of symbols and 
-abbreviations. Its structure follows the standard structure used in scientific 
-writing. A typical division of the content is
-%% An example of an ordered (numbered) list with the default numbering.
-\begin{enumerate}
-	\item \label{list:intro} Introduction (research objectives and questions)
-	\item Literature review (research made earlier in this area)
-	\item Research material and methods
-	\item Results / Findings
-	\item Discussion
-	\item \label{list:summary} Summary / Conclusions
-	\item References
-\end{enumerate}
-The parts \ref{list:intro}--\ref{list:summary} in the list above are the text  
-of your thesis. Often the discussion and summary (or conclusions) are combined 
-in one chapter. The wording of the titles suggested above may differ. As a 
-matter of fact, the titles above refer more to the type of content rather than 
-being title suggestions. For example, the literature review of a thesis on 
-electromagnetics could be under the title ‘Electromagnetic theory and FDTD’. 
-The background to the methodology used---FDTD here---could also be in this 
-chapter. Note that the chapters and sections within the main matter are 
-numbered, and that they appear in the table of contents. The references, or the 
-bibliography, is also shown in the table of contents, but without a number 
-labelling it.
-
-The appendix or appendices, when necessary, are presented in the last part of
-the thesis. They contain things like questionnaires used in the study, 
-[selected parts of] data, derivations of mathematical results, a more detailed 
-exposition of some aspect in the thesis, or code listings. Number them in the 
-table of contents as follows:
-%% An example of an ordered list with the capital-letter numbering. The letter
-%% nubering is limited to this list only.
-\begin{enumerate}
-\renewcommand{\labelenumi}{\Alph{enumi}.}
-	\item The first appendix
-	\item The second appendix
-\end{enumerate}
-
-Refer to a suitable guide on writing a thesis for a comprehensive description;
-there are plenty of them around. The instructions here are not exhaustive, and
-they concentrate more on how to use this template.
-
-A bachelor’s thesis is ideally about 20 pages long, excluding the appendices, 
-whereas a master’s thesis is about 60 pages long, again, not counting the pages
-in the appendices. The numbers pertaining to the length of your thesis given
-here are mere rules of thumb. Consult your school’s thesis guidelines and your 
-thesis advisor and/or supervisor for the appropriate length in your case.
+\subsection{Review methodology}
+To design a system, that can stand up to these standards properly, multiple search terms were examined for this literature review. First search terms is "ethical data economy". Exact keyphrase matching on Google scholar \cite{scholargoogle_ethicaldataeconomy2026} resulted in 26 papers found, that were published since 2016.
+Using consensus.app \cite{consensus_ethicaldataeconomy2026} for extended keyphrase lookup, another 120 hits were found, making it altogether 146. After title relevance-screening, duplicate filtering and article access checks, only 39 articles remain. Abstract screening eliminated another 22, leaving us with 17.
+The second search term is "merkle tree" AND "hash", where a similar technique, but only on consensus.app \cite{consensus_merkleandhash2026} resulted in ~5400 initial hits. After deduplication and keyword relevance filtering, the number of relevant articles decreased to 48, further decreasing to 10 with title filtering. Abstract filtering left us with 4 papers.
 
 
-\subsection{Page numbering}
-Number the pages using Arabic numerals, placed in the centre of the page footer.
-The numbering begins from the cover page and runs continuously to the end of the 
-thesis. Enter the total number of pages in the thesis---front matter, main
-matter and appendices, if present---in the appropriate field on the abstract
-page. Enter also the number of pages in the appendices, if present, in the same 
-field on the abstract page as follows: total number of thesis pages / number of 
-pages in the appendices.
+%consensus got 120 hits since 2016 (extended keyword search), google scholar found 26 since 2016 (exact keyword matching)
+%google(19.03.2026.): https://scholar.google.com/scholar?q=%22ethical+data+economy%22&hl=hu&as_sdt=0%2C5&as_ylo=2016&as_yhi= 
+%consensus.ai(19.03.2026.): https://consensus.app/search/ethical-data-economy/619aS1rJQoCezJx8dpjegQ/?utm_source=share&utm_medium=clipboard
 
-Do not print the page numbers on the cover and the copyright pages; number all
-the other pages. Thus, the first page with a page number printed on it---the
-first abstract page---is ‘3’. The page numbering of appendices continues from
-that on the previous page.
+\subsection{Ethical data economy}
 
+Data is a 'hot commodity' as it keeps gaining significance in our current world and is a basis for an economical system that dictates our lives. The larger a Machine Learning model gets the more data they require for training, making new models harder and harder to 'feed'. This resulted in some practices, that not all found human-centric, so call for ethical and human-centric data collection and handling practices grows ever louder.
+One of the primary concerns laid out in \cite{hyrynsalmi2023balancing} is the secondary data market, also known as data reselling. This is a problem concerning many data economy models and is the root cause of many transparency issues. Consequently, it is a highly researched topic, but the consensus at the time of writing this thesis is that software-only solutions cannot protect against that.\\
+%- Secondary data market usage \cite{hyrynsalmi2023balancing} <-> a system that hides the data itself, not the user\\
 
-\subsection{Structuring the text in the main matter}
-\subsubsection{Sections}
+A couple of sources agree (\cite{valli2024ethical}, \cite{mirishli2025ethical}) that data economies are an ever-evolving landscape and should be treated accordingly. There should be constant exploration on what is happening, how data is used, how is it gathered and legal (e.g data and privacy protection laws) and ethical frameworks should constantly be recalibrated/reconceptualized. Similarly, current consent models are insufficient; consent for data gathering should be informed and adaptive. The research done by \cite{valli2024ethical} points to possible further explorations of data modification to achieve at least some of these goals. These are adding noise to the data artificially, consider different sensitivity for different kinds of data (e.g. treat phone number and health record protection differently) and exploring the privacy and utility trade-off, meaning the more private your data is, the less useful it is for systems. There should be some sort of balancing between the two, so all parties involved benefit the most.\\
+%- prioritise transparent user mechanisms; use of federated learning; continuous recalibration and exploration; gaps: consideration of data sensitivity; privacy and utility enhancement trade-offs; adding noise to data \cite{valli2024ethical}\\
+%- insufficient consent models; adaptive consent, regular reconceptualization of data protection laws \cite{mirishli2025ethical}\\
 
-You can structure your text by dividing it into sections with a suitable title. 
-Well-devised sectioning clarifies your text, but beware of overusing them, since 
-that will fragment and confuse your text. Do not use more than three levels of 
-hierarchy in your sections. Notice that the section titles, just as the figure
-and table labels, are in a Helvetica clone, a sans serif, or grotesque, font. 
-The main matter text is typeset in a Times clone, a serif font.
+These demands for more ethicality in how our data is handled did not start recently. Already back in 2018 there were demands formed on how data usage should benefit society. First, it should be clear who benefits from the data, all parties who do and, probably more importantly, who incurs the risk \cite{hand2018aspects}. This means knowing that in case of e.g a data leak, whose information is getting exposed and what kind of information (e-mail address of an individual leaking has less negative impacts compared to their social security number becoming public). The paper talks about how these thoughts motivated multiple organizations; The European Data Protection Supervisor (EDPS) places human dignity in the center, using it to balance out surveillance and asymmetry of power against the individual. The Data governance working group rather uses human flourishing as a 'guiding star'.  Meaning systems running on human created data, should be designed and governed in a way that it supports the well-being of humans (the ones creating the data). The author does warn, that ethics do differ region-to-region (for example different principles are considered ethical in UK than the EU  or the USA), so systems trying to conform to ethics should be aware of their 'audience'. The author also gives a checklist of what ethical data governance systems should consider. Later showcased works define and list better considerations for the scope of the thesis, so this list is not given here.\\
+%- be clear about who benefits who and who incurs the risk; EDPS: human dignity; Data Governance Working Group: human flourishing; ethics are not universal (EU vs UK vs USA); harm: health detriment, financial loss, discrimination, (gives and ethical checklist) \cite{hand2018aspects}\\
+Rantanen and Koskinen started publishing in similar topics to the previous in 2019. Koskinen identified a gap in humanistic approaches to data governance, as demand started rising for it, especially in the EU \cite{koskinen2019if}. They identified the need for commonly accepted ground rules, which would start with a fair governance system (preferably an international one), but that is out of the scope of this thesis. Rantanen took a more down-to-earth approach, as they surveyed people's demand and expectation from an ethical data economy \cite{rantanen2019towards}. They found that people expect a system like this to support their autonomy, protect their privacy, to be secure and transparent, trustworthy, benevolent and just. As a whole they want it to be beneficial both to them as individuals and the rest of society.
+%- people find these important: support autonomy, protect privacy, security, transparency, trustworthy, benevolent and just; beneficial to both individuals and society \cite{rantanen2019towards}\\
+%- rising demand for more humanistic approaches; already some steps, at least in Europe; need for commonly accepted ground rules; starting point is fair governance, out of scope for this thesis \cite{koskinen2019if}\\
+A year later, when talking about and defining a human-centric data economy, Rantanen et al. split human values into 2 groups: intrinsic and instrumental \cite{rantanen2020ethical}. Autonomy, justice and security of data are intrinsic values, while they categorized transparency, honesty and supervision instrumental ones. While their results are not absolute, they argue that these values should be included in a data economy that includes and is sustained by humans. Things that humans value should be studied more (and so should ways on how this can be done). These claims need to gain more rigor with further research, but this paper defined a direction for a part of the studies on data economy ethicality up until now. 
+%- autonomy, justice and security are intrinsic values to a data economy; transparency, honesty and supervision are instrumental ones; these values must be included in the human-centric data economy; gaps: how to study these, more and deeper studies on what we, humans value \cite{rantanen2020ethical}\\
+In the same year they continued this study in \cite{rantanen2020humans} which was a study done on over 8000 people, 4792 of which gave answers allowing for deeper insight, the summary of which can be found in Table \ref{tab:european_demand_summary}. There are 2 key takeaways here; The most pressing (and important) demand seems to be transparency, as not only large percentage of the participants demanded it, but is also enables the fulfillment of other demands, such as true control over data, informedness, security, trust or being in general aware of benefits. The second takeaway is that participants wanted an active role in a data economy; They want to have control over their data, be aware of what is happening to it (who can see it, who buys/uses it), benefit from the usage of their data and even in some cases the ability to supervise this system. The authors correctly identified a gap in communication between stakeholders at the time leading to large part of the demands. 
+%- n = 4792 participants (non-representative of subgroups); \ref{tab:european_demand_summary}; 2 key takeaways: transparency is a demand and an enabler for other demands (true control, informedness, security, trust, be aware of benefits); active role: control over own data, be aware of what is happening to said data, benefit from this, maybe supervision of the systems; big pitfall is communication \cite{rantanen2020humans}\\
+In their last paper of that year \cite{rantanen2020respecting} they built on the  identified values of their previous research and concluded, that human empowerment comes through information control. This means people should be able to control information about themselves; both what is visible and how it can be traded. To enable this, the paper suggests a good first step to be extending governance bodies to build trust in the whole data economy (stakeholder network).\\  
+%- builds on prev paper on values; empowerment through information control; extend governance bodies to build trust in the entire network \cite{rantanen2020respecting}\\
+The conclusion to their research saga would be their paper in 2023 \cite{koskinen2023ethical}. Here they discuss, how the current data economy practices and models are not in line with values of individuals and how there is a rising demand (and need) for an approach that follows ethical guidelines. They identified GDPR and similar frameworks have taken good steps towards this, but the current status is not sufficient. A good data ecosystem requires constant communication between stakeholders (as seen in \cite{rantanen2020humans}) and also facilitates it. This communication should focus on the data (and strategies) shared between these stakeholders. This constant communication would also enable regular restructuring of the system with active actors, as have been identified as a need previously. Their main point can be summarized in their quote: "Individuals are bypassed in the current data economy, which is strongly based on collecting from them." To achieve this, they identified a couple of next steps: The analysis and rethinking of current communication practices between stakeholders of data economies, research new, proper ways of effective communication and how viable they are.\\
+%- current data economy is not in line with values of individuals, a need for more ethicality has risen; GDPR and alikes has been taken as good steps, but not enough; a good ecosystem requires and facilitates constant stakeholder interaction (see: pages 8 figure of the article); focus on the data and strategies shared between ecosystem stakeholders; constant communication and potential restructuring with active actors; "individuals are bypassed in the current data economy, which is strongly based on collecting from them"; gap: current communication practices between stakeholders, proper way of this communication, viability \cite{koskinen2023ethical}\\
 
-The sectioning macros available in \LaTeX{} are 
-%% \section{title} 
-%% \subsection{subtitle}
-%% \subsubsection{subsubtitle}
-\begin{itemize}
-	\setlength{\itemsep}{0pt}
-	\item[] \verb+\section{title}+,
-	\item[] \verb+\subsection{subtitle}+, and
-	\item[] \verb+\subsubsection{subsubtitle}+.
-\end{itemize}
+A different approach in values to Rantanen and Koskinen also emerged in 2019. Devitt et al. collected all together 15 goals/principles around 4 topics: community, rights, usability and politics \cite{devitt2019principles}. "Community" refers to the data subjects, who produce the personal data fueling the data economies; these economies should be for these subjects and preferably ran by them, including communal sharing of information and self-governance. The "Rights" topic explores how data collection should respect human rights, benefit humans and the natural world. "Usability" is about the processing of the data and what it needs to be processable; it should be fit for purpose and usable, collected in a consensual, fair and transparent manner. Data is dependent on context (this context should be accounted for) and with reasonable exceptions it should be available to the public, to be revisable and form a useful social capital. "Politics" show how data can empower democratic people; data empowered people should be able to challenge existing political and economic norms, so they can revise this and achieve better, more equal and secure democracy. This approach was not as deeply researched as the one shown in the previous works, it does, however, consider the usability and transparency of the data and the seeming contradiction between them.\\
+%- 15 principles: community: orchestrated and mediated by and for data subjects, including communal sharing for community decision making and self-governance; rights: should be collected with respect to humans and their rights and the natural world; usability: usable and fit for purpose; consensual, fair and transparent and must respect interpersonal relationships, data is dependent on context and with reasonable exceptions should be open and published, revisable and form useful social capital; politics: reveals and challenges the existing political and economic order so that data empowered people can secure good democracy. \cite{devitt2019principles}\\
 
-The formatting specifications are in appendix~\ref{app:layout}. The fonts 
-specified there are for Word documents, as specified by Aalto's visual 
-guidelines. No corresponding fonts are officially specified for \LaTeX{}. Hence,
-similar corresponding fonts provided by the \verb+newtxtext+ package are used in
-this template. Math fonts are those from \verb+newtxmath+. The most important 
-factor that influenced this choice of fonts was that the package outputs 
-PDF/A-1b compliant pdf using \texttt{pdflatex}.
+The work of these authors made others evaluate the situation and come up with models for ethical data economies, especially in the age of AI and exponentially growing data demands. 
+Hajoary et al. addresses the gap between ethicality and data monetization combined with AI data consumption \cite{hajoary2023exploring}. They reviewed the relevant literature and found that while AI, data base, Machine Learning were popular (high number of published papers), Ethics, law, rights were less researched. In these they identified a human need of transparency for data collected from them. Finally they further reinforce the need for culturally and ethically sensitive data governance policies, mostly in the EU and USA.\\
+%- data monetization and AI data consumption don't align with ethical theories, that concern them; theoretical, ethical and methodological advancements; keywords of ethic, law, right, database, ai were popular in publishing; transparency is a big takeaway in human needs; reinforced needs for culturally sensitive data governance policies (in EU and USA)\cite{hajoary2023exploring}\\
 
-At least in technical texts, refraining from using the articles ‘a’ and ‘the’ as
-the first word in the title is common practice. Appendices are enumerated using 
-capital letters. Begin every section on a new page. Begin a subsection on a new 
-page only if the previous page is full. Similarly, begin every appendix on a new
-page.
+Moran approached the question from the Big Data side \cite{moran2022towards}; They identified a gap between tools available and Big Data. Currently the latter outclasses the former in most aspects, leading to a non-transparent, overly powerful tool. This means Big Data requires deeper contemplation and rethinking, possibly reimplementation. Big Data needs to be handled in a way, that it is in accordance with human autonomy, while avoiding the pitfall of overregulation and regulatory loopholes. The invasiveness and number of people affected suggests using group ethics as ethical framework for resolving some moral dilemmas regarding the topic. The article finally warns, that Big Data systems should be aware of these limitations and especially dilemmas when being designed and should hold up to ethical frameworks.\\
+%- operational challenges: people to be trained on data; Big Data exceeds current tools in capabilities; services created on the search of information; Big Data requires deep contemplation; moral responsibility - implementation with accordance to human autonomy; fear/pitfall of regulatory loopholes and overregulation; resolving moral dilemmas; must be aware of these limitations, especially the dilemmas; invasiveness and number of people affected call for uses of group ethics\cite{moran2022towards}\\
 
-\subsubsection{Paragraphs}
+Okorie et al. further reinforce the need for consent, transparency and privacy in ethical data economies \cite{okorie2024ethical}. Furthermore, they identified a need for adaptable and inclusive ethical frameworks. They reason that these frameworks are addressing the complexities in the data subjects are generating and whom are affected by the data. They conclude that integrating ethical considerations into every step along the way of creating data economies is necessary, also can be referred to as 'ethical by design'.\\
+%- consent and privacy are foundational elements for this; need for adaptable and inclusive ethical frameworks to address complexities; transparency; integrating ethical considerations into each and every step is necessary \cite{okorie2024ethical}\\
 
-The paragraph that follows the section title is not indented, the paragraphs 
-that follow are. Often, the body text is typeset as raggedright to avoid 
-unnecessarily large white spaces between words. On the other hand, in many 
-technical fields, the text is justified on both sides, but in such cases, 
-hyphenation is used to maintain reasonable separation between words. This 
-template uses justified text with automatic hyphenation. Write paragraphs so 
-that they span more than three lines. Rethink your text, if you end up having  
-one-line paragraphs; avoid them in your thesis---including the appendices. In 
-addition, you may need to reconstruct your text if your paragraphs are too long.
-Avoid emphasising text using italics. Italicised text makes reading for dyslexic
-readers even more difficult.
+Keymolen and Taylor suggest putting responsibility on regulators and data scientists alike \cite{keymolen2023data}. They call for new regulations not only for data handling, but for those who are handling it. They argue data scientists should be accountable (as on go through rigorous evaluations, independent political influences) as their work directly and indirectly affects the lives of large portion of the population. They reason, because of the magnitude of the impact data science and data driven businesses have on society, more ethical research and business practices should be enforced. (Significant impact on society includes education, social relations, news, buying habits, media.) Data ethics as is, is unfit for this, as complexity of data demands it having open definitions and somewhat lose rules. This allows for malevolence in the form of ethics washing, which is dangerous while the ethics washed systems can impact society in this serious of a manner. This means data ethics need a revisit and ethics washing should be avoided at all cost.\\
+%- call for new regulations; responsible data scientists, accountable (rigorous evaluations), no political incentives; reinforcement on more ethical business practice and data handling demands; data science and data-driven business have ethically significant impact in society (education, social relations, news, propaganda, buying); data ethics has a lot of open and sucks at defining what is the right thing to do -> ethics washing is a real danger, should be avoided at all costs.\cite{keymolen2023data}
 
-When a number has a unit associated with it, ensure two things: the space 
-between the number and the unit is smaller than the regular space (for example, 
-1\,Hz) and the number and unit are not split over lines. You can simply use 
-\verb+\,+ between the number and the unit without spaces between them to stop 
-them from being split (\verb+1\,Hz+) or use the package \verb+siunitx+.
+Somewhat connected, a study in 2024 proposed a framework integrating some previously mentioned results and demands \cite{von2024data}. The article proposes a definition of data sovereignty as "The capability of a natural person or legal entity for exclusive self-determination with regard to its economic data goods" and lists several aspects of it. They argue the essentialism of data sovereignty for trusted data sharing between individuals and organizations/legal entities. They conclude that this trust between the different parties is essential in order to enable effective innovation. \\
+%- data sovereignty: The capability of a natural person or legal entity for exclusive self-determination with regard to its economic data goods (has 7 aspects and their relations); essential to guaranteeing trusted data sharing between individuals and organization of different parties to make innovation happen \cite{von2024data}\\
+
+The paper by Sohail et al. offers a better designed solution. They identified issues relating to individuals' matters \cite{sohail2024data}. These being data protection, fairness, transparency, confidentiality, integrity and autonomy. There was a framework that was close to solving those at the time, FAIR (findable, accessible, interoperable, reusable). While it was adopted in some areas, for mass adaption FAIR or FAIR principles would require coordinated efforts from multiple stakeholders, involving governing forces like federal governments or even the EU. They suggest an improvement on the framework in the form of the FACT (fairness (not as previous), accuracy, confidentiality, transparency) principles. This was developed (and to some extent adopted) in the Netherlands. Their improvement to this framework is the use of something called an Open Personal Data Store (OpenPDS). This Open version of PDS over the regular is required, so that it aligns with general business interest of not making all data public. (Important to note, that the study also shows enterprises holding onto data for longer doesn't make service any better. transparent and trustworthy companies are more likely to get data.) PDS allows for both queries and answers to happen in an encoded way, hiding data. OpenPDS further demands users have increased control over when they share data (privacy preservation and choice control) and this is how this system is the best we have so far.
+%- issues relate to individuals' data protection, fairness, transparency, confidentiality, integrity and autonomy; solution (best, so far): FAIR(findable, accessible, interoperable, reusable) acclaimed and adopted; to achieve FAIR data, coordinated efforts from multiple stakeholders is required; FACT(fairness (not as prev), accuracy, confidentiality, transparency) developed and somewhat used in the Netherlands; Enterprises holding onto data for longer doesn't make service any better. transparent and trustworthy companies are more likely to get data; FAIR and OpenPDS(personal data store) --  data availability is not company interest; PDS is queried in code and answers in code; OpenPDS demands users have increased control over when they share data (privacy preservation and choice control) \cite{sohail2024data}\\
 
 
-\subsubsection{Equations}
 
-Equations are numbered using Arabic numerals, typically enclosed in parentheses,
-but not always. This template encloses equation numbers in parentheses. An 
-example equation is
-\begin{equation}
-	f(x) = a_0 + \sum_{n=1}^{\infty} \left( a_n \cos\frac{n\pi x}{L} + 
-	b_n \sin\frac{n\pi x}{L} \right).
-\end{equation}
-Closely related equations like equations in a system of equations may be numbered 
-as follows:
-\begin{subequations}\label{eq:ohm}
-  \begin{alignat}{1}
-	V_\text{s} &= R_\text{s} i_\text{s} + R(i_\text{s} + i_\text{b})
-	 \label{eq:ohm1}\\
-	V_\text{b} &= R_\text{b} i_\text{b} + R(i_\text{b} + i_\text{s}).
-	 \label{eq:ohm2}
-  \end{alignat}
-\end{subequations}
-All equations need not be numbered. Remember punctuation after the equation; an
-equation is an integral part of your sentence and may need to be followed by 
-punctuation marks. Many scientific journals do not use them after equations;
-then again, many do. Punctuate the equations in your thesis. Numbering of
-equations in appendices consists of the appendix numbering alphabet followed by
-the equation number, which starts from one in each appendix. For example, the
-first equation in appendix A would be equation~(A1) and the first two 
-equations~(A1)--(A2).
 
-\subsubsection{Figures and tables}
+\begin{table}[H]
+\centering
+\caption{Summary of the demands surveyed by Rantanen and Koskinen (cited from \cite{rantanen2020humans})}
+\refstepcounter{table}
 
-Theses generally contain figures and tables, which have captions describing 
-them. For figures, the convention is to place the caption after (below) the 
-figure, as shown in figure~\ref{fig:coil} and figure~\ref{fig:graph}. Tables, on
-the other hand, have the caption above (before), as evident from 
-table~\ref{tab:animals}. The label and number are typeset in the sans serif bold
-12-pt typeface and the caption in the serif 12-pt normal typeface (see 
-appendix~\ref{app:layout}).
-
-%% Example of a figure
-%% The environent's optional arguments h (here), t (top), b (bottom) and p
-%% (page) try to force LaTeX to place the figure as directed as opposed to being
-%% place there where LaTeX deems appropriate. 'p' places the figure on the next
-%% page by itself. The order of the arguments determines the preference that is
-%% desired. These arguments apply to the table environment as well.
-\begin{figure}[tb]
-  \centering
-  \includegraphics[alt={A coil of copper wire with a magnet placed in the centre of the coil and two LEDs connected at the ends of the coiled wire.}, height=5cm]{./ledspole.jpg}
-  \caption{A coil terminated in two LEDs with a magnet placed at its centre!!}
-  \label{fig:coil}
-\end{figure}
-
-\begin{figure}[tb]
-  \centering
-  \includegraphics[alt={One period of a since and a cosine curve from 0 to 2 pi radians and having amplitude 1.}, height=5cm]{curves.pdf}
-  \caption{Example of a MATLAB graph.}
-  \label{fig:graph}
-\end{figure}
-
-%% Example of a table
-\begin{table}[tb]
-	\centering
-	\caption{An example table. Common animals classified into their classes.}
-	\label{tab:animals}
-	\sffamily% change the font in the table to sans serif
-	\begin{tabular}{ccc}
-	  \hline
-	  \textbf{Mammals} & \textbf{Birds} & \textbf{Insects}\\ \hline
-	  dog & crow & ladybird \\ \hline
-	  cat & sparrow & ant \\ \hline
-	  rat & tit & cockroach \\ \hline
-	\end{tabular}
+\begin{tblr}{
+  row{1} = {t},
+  row{2} = {t},
+  row{3} = {t},
+  row{4} = {t},
+  hlines = {Gray},
+  vline{2} = {-}{Gray},
+  hline{2} = {-}{0.08em},
+}
+Theme                              & Demands for a fair data economy                                                                                                                                                                                                                                                                                                                                                                                                              \\
+Control over data and data sharing & {\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Power over data sharing and content\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Preserving privacy\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Informed and dynamic consent\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Possibility to control the content (requires access)\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Easy-to-use control mechanisms} \\
+Transparency and being informed    & {\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Transparency of processes\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Ability to see what is collected\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Comprehensible and on-going communication}                                                                                                                                                                            \\
+Security                           & {\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Secure services\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Confidentiality, anonymity\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Transparent data management\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Better understanding of security}                                                                                                                     \\
+Trust and fairness                 & {\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Trustworthiness of service providers\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Clear promises that are kept\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Fair treatment of all parties}                                                                                                                                                                                 \\
+Compensation and benefits          & {\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Concrete benefits for disclosing data\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Common good\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Clear and honest communication about the~benefits}                                                                                                                                                                             \\
+Supervision and rules              & {\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Rules and laws are obeyed\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Supervision of the system by an independent institution\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Sanctions if rules are broken}                                                                                                                                                                 \\
+Negative attitudes                 & {\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}Trust needs to be gained back\\\labelitemi\hspace{\dimexpr\labelsep+0.5\tabcolsep}More holistic approach than a label needed}                                                                                                                                                                                                                                                            
+\end{tblr}
+\label{tab:european_demand_summary}
 \end{table}
 
-Avoid placing figures and tables such that they are preceded or followed by just
-a line or two, because the reader can have difficulties in finding the line(s) 
-of text and might even accidentally miss the text completely. Consider, for 
-example, a page beginning with one line of text continued from the preceding 
-page and that ends the paragraph. This is followed by a figure, then a short 
-three-line paragraph, then yet another figure, followed by more text, which is 
-positioned such that only two lines of text are on the page and the remainder is
-placed on the following page. The layout of this page is fragmented, and as a 
-result, the reader might initially miss the top line of text. Consider using one
-of the following three layout possibilities: place the figures in the top part 
-of the page followed by the text, or place the text in the top followed by the 
-figures, or place all the text in the middle with one figure on the top and the 
-other at the bottom. Base your choice on considering how easily the reader can 
-follow your text (the content of the figures affects this), and whether the page
-as a whole looks ordered and pleasing to the eye.
+\subsection{Data marketplaces}
+Data is a relatively new commodity \cite{haav2014data}. This means, that data markets and marketplaces were emerging in the 2010s, but as data was an unconventional product, the terminology across data sales was not uniform. \cite{stahl2016classification} successfully identified this gap and created a terminology framework that follows traditional market definitions, while adapting it to computer science environment. The following terminological framework will be used throughout this thesis;
+\begin{defi}
+    Market is an economic structure, the abstract place of trade, that serves three functions: Institute, transaction and pricing mechanism. As an institution market is a framework of rules, that assigns roles to its actors, as well as expected behaviors and protocols. The market is made up from the transactions happening in it, so the market defines these transactions. They consist of four phases; (1) Information phase (actors get informed about exchange intentions (bids/offers)), (2) negotiation phase (actors negotiate the product, contract terms and price), (3) transaction phase (contracts are fulfilled), (4) after-sales phase (customer service) \cite{richter2002elektronische}. As pricing mechanism, the market leads the actions of buyers and sellers and signal the conditions of sale to other participants. These definitions apply to electronic markets and in them to data markets. These only deviate in implementation of the institutionality and pricing philosophy as transaction costs are low and they are highly accessible.
+\end{defi}
+\begin{defi}
+    An electronic marketplace is the concrete virtual institution and place of exchange that brings together supply and demand and supports the trade between providers and customers, i.e., transferring the market function into an electronic infrastructure. Any type of business action on online platforms or any type of electronic venture falls into this dimension with no regard to whether they are based on competition or on collaboration.
+\end{defi}
+A data market and marketplace conform to the definitions above. Based on those \cite{stahl2016classification} define them in the following way:
+\begin{defi}
+    Data marketplace is an electronic marketplace, where:
+    \begin{itemize}
+        \item A provider's primary business model needs to be providing data and/or related services. 
+        \item Data marketplace provider's need to offer an infrastructure that allows customers to upload, browse, download, buy and sell machine-readable data. (e.g. CSV, XML, JSON) The data have to be hosted by the providers and it needs to be clear whether the specific data come from the community or the operator.
+    \end{itemize}
+\end{defi}
 
-Strive to place the referenced figure or table on the same page as where it is 
-referenced. If this is difficult, place it on the following page, but not very 
-much further. Using the options \texttt{b} (for bottom), \texttt{t} (for top), 
-\texttt{h} (for here) and \texttt{p} (for separate page) judiciously in the 
-\texttt{figure} and \texttt{table} environments, \LaTeX{} does a pretty good 
-job of placing figures and tables. However, placing figures (and tables) close 
-to where they are referred to may be impossible when you have many pictures, so 
-use common sense and keep the reader in mind when placing pictures and tables.
+Furthermore, Figure \ref{fig:data_market_hier} shows the hierarchical analysis of the model proposed in \cite{stahl2016classification}, out of which this system could be either categorized as buy-side system or a buy-side platform, as the product (data) supply is in the hands of the platform owner. Many users individually produce data, but the platform owner collects it and offers it to the numerous, outside buyers. This warrants buy-side system as a better description of marketplace of the two.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{images/datamarketdef.png}
+    \caption{A model of electronic marketplaces discerning between three ownership types, cited from \cite{stahl2016classification}}
+    \label{fig:data_market_hier}
+\end{figure}
 
 
-\subsection{Referencing parts in the thesis}
 
-Cross-referencing in \LaTeX{} is simple and straightforward: use 
-\verb+\label{marker}+ to label the object with a number and then refer to the 
-object using \verb+\ref{marker}+. \texttt{marker} should be a unique string of 
-characters. To help keep you organised with the various reference labels, be 
-systematic when creating them for different objects in the thesis. For example, 
-start labels for figures with \texttt{fig:}, for tables with \texttt{tab:}, 
-\texttt{sec:} for sections, and \texttt{eq:} for equations, as done in this 
-template. So, you could have, say, \verb+\label{sec:ohmslaw}+, 
-\verb+\label{eq:ohmslaw}+, \verb+\label{fig:ohmslaw}+, and 
-\verb+\label{tab:ohmslaw}+.
+\subsection{WibsonTree and other Merkle tree concepts}
 
-Perhaps you will have noticed that when referencing objects in the text, as is 
-done for `figure' earlier in the text, the label ‘figure’ in the cross-reference
-is not capitalised. Often, you see the capitalised label ‘Figure’. In such 
-cases, the label together with the number, for example ‘Figure 2’, is 
-considered a proper noun, hence the capitalisation. Although this template uses 
-the lowercase form, you can choose how you write cross-referencing labels: 
-‘figure’ or ‘Figure’---you will do well to consult your advisor and supervisor 
-about this; they may have strong opinions on the matter. However you decide to 
-write cross-referencing labels---figure, table, section or equation---be 
-consistent.
+In their paper Liu et al. \cite{liu2021merkle} define the Merkle tree as "a kind of tree that obtains value of the parents and the root by combining each of its children and computing the hash value of the combination". (Picture in Fig. \ref{fig:merkle_base}) This is a technology implemented in blockchain technologies such as Bitcoin or Ethereum. The paper details 3 properties of the Merkle tree:
+\begin{itemize}
+    \item \textbf{Preimage resistance:} (or one-way hashing) is that for any fixed length hashed message $y$, it is computationally infeasible to figure out any specific $x$ input that produces that exact hash. Meaning, that the hashed message protects/masks the original information of said message, but still maps it with the fingerprint.
+    \item \textbf{Second-preimage resistance:} A Merkle tree makes it computationally infeasible to find another message that has the same hash value as the original one. This protects against 'highjacking' or counterfeiting the original message.
+    \item \textbf{Collision resistance:} For a Merkle tree (or its hash function) it is computationally infeasible to construct two different messages that produce the same hash value with the hash function. This enables Merkle trees to be used in data contribution systems, such as the one further detailed in \cite{futoransky2020wibsontree}.
+\end{itemize}
+As this concept is invented to work well on the blockchain, where every transaction is public and transparent, it solves the issue of efficient verification with only storing a header, which is useful for this thesis. The authors also make an important note, that these trees are not exclusively binary trees, but larger n-ary trees may require more resources for e.g. tree generation.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{images/merkle_tree.png}
+    \caption{A Merkle tree created on 8 data points and with hash function $H(\cdot)$, cited from \cite{zhu2021improved}}
+    \label{fig:merkle_base}
+\end{figure}
 
-Do not abbreviate any of the labels, for example ‘figure’ to ‘fig.’ or ‘Fig.’. 
-Journals do this because the amount of available space for an article is 
-limited; space is not an issue in your thesis. You can refer to more than one 
-figure, for example, by saying figures~\ref{fig:coil} and \ref{fig:graph}. Use 
-endash `\verb+--+' to specify a range: sections~\ref{sec:intro}--\ref{sec:summary}.
+In 2021 an improvement was proposed for Merkle trees encoding electronic medical records (EMR) \cite{zhu2021improved}. The authors propose an algorithm that turns the usual Merkle structure (pictured Fig. \ref{fig:merkle_base}) into a convolution structure using some Kernel (pictured Fig. \ref{fig:cnn_merkle}), inspired by convolutional neural networks. 
 
-To reference a section, place the section label directly after the sectioning 
-command of the section to be referenced. For example:
-%% The verbatim environment typesets text within it as-is. Commands are not
-%% interpreted and executed within the environment.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1 \linewidth]{images/cnn_merkle.png}
+    \caption{Layered Merkle tree with 16 data points, SHA256 hash function and $S$ convolution kernel, cited from \cite{zhu2021improved}}
+    \label{fig:cnn_merkle}
+\end{figure}
+
+\noindent The example pictured requires the data to be able to be divided into 16 equal parts. This, however, is not a fixed number, it is dependent on the size of the kernel. Furthermore, noise can be added to 'fill out' the missing spots in the case of not enough data (e.g. 15 data blocks, one noise block in this case). This further increases privacy protection. Additionally, a significant speedup is proposed, as can be seen in Table \ref{tab:merkle_cnn_speed_diff}. Important to note, that this paper only considered this application in the EMR record and query application, it may not be guaranteed in different applications.
+
+
+
+%\definecolor{SilverChalice}{rgb}{0.67,0.67,0.67}
+\begin{table}
+\centering
+\caption{The difference between traditionaly k-ary merkle tree and the improved structure}
+\label{tab:merkle_cnn_speed_diff}
+\begin{tblr}{
+  row{1} = {Gray,font=\bfseries},
+  hlines,
+  vlines,
+}
+Structure & Layer & Nodes                      & Hash calculations        \\
+Original  & k*n+1 & $k^{2n+1}-1$               & $k^{2n}-1$               \\
+Improved  & $n+1$ & $\frac{k^{2n+1}-1}{k^2-1}$ & $\frac{k^{2n}-1}{k^2-1}$ 
+\end{tblr}
+\end{table}
+
+A significant potential upgrade to Merkle tree based systems are Recursive argument Merkle trees (Reckle trees) \cite{papamanthou2024reckle}. Papamanthou and their research group identified a gap in the calculations of proofs in Merkle trees, namely that they have to be fully recalculated, no matter the size of change in the data. Updatable batch proofs help blockchain systems efficiently compute and maintain proofs in a moving stream datablock setting. They propose and apply a technique called canonical hashing, allowing for batch proof updating in logarithmic time (though this requires sufficient parallelism, but provided that the speed would be batch size independent.) Canonical hashing is a recursive way to calculate a digest of a subset of leaves on the Merkle tree. This solution offers small memory footprint (112 KiB, independent of batch size), 10 to 15 times speed up on update time and 4.78 to 1485 times of speed up in verification under the right circumstances. While these results are likely to be well suited for industrial applications, they require too large resources for the proof of concept that is the scope of this thesis.\\
+The paper by Liu et al. argues that the most popular form of hashing is Poseidon Hash for Merkle trees in the area of Zero-Knowledge Proofs (ZKP) \cite{liu2025acclmt}. Their identified research gap is how hardware acceleration can significantly speed up building Merkle trees with this type of hashing. While Poseidon is by default more expensive than traditional hashing (like SHA256) it scales better for certain hardware architecture and this is what this solution capitalizes on. Their proposed solution, AccIMT,  is a hardware-software combination that promises up to 1665 times speed up compared to other, software only solutions. Furthermore, it achieves 14.3 times speed and 14.8\% reduced area usage compared to previous state of the art in similar tech. The proposed experiment setup is optimized for blockchains and is at the time of writing unavailable for the purposes of thesis experimenting. This means while this solution is promising, it is both out of budget and out of scope for the thesis, while most likely promising a lucrative direction for further research.\\
+
+The concept of WibsonTree \cite{futoransky2020wibsontree} introduces a data market model consisting of 3 types of actors:
+\begin{itemize}
+    \item The Buyer: Looking for data from individuals, that belong to a criteria (e.g. age: 25-30, sex: female). Only receives whether a Seller is matching this criteria, nothing else. Unaware if the same Seller is participating in multiple data transactions.
+    \item The Seller: An individual, choosing to sell their own data, anonymously. The Seller has no information about other Sellers participating in a transaction. Under certain circumstances, also unaware of the Buyer's criteria.
+    \item The Notary: They are the supervising actor of the marketplace. They are able to validate the precision and quality of the Sellers data. They should not be able to learn anything else about the Seller. They get compensated for their work. They need to have public identities and off-chain reputation. \cite{travizano2020wibson}
+\end{itemize}
+The Buyer specifies a criterion $X_0$. The Notary assigns a 'Match Criterion' function to each Seller $\mathcal{S}$, such that:
+\begin{equation*}
+    F_{\mathcal{S}}(X) \in \{true, false\};\\
+    \forall X \neq X_0:
+\end{equation*}
+The Buyer does not learn the value of $F_{\mathcal{S}}(X)$. If a Seller matches criterion $X_0$, they reveal, that $F_{\mathcal{S}}(X_0) = true$, and the valuation is the same as the one signed by the Notary (Sign$_{Notary} (F_\mathcal{S}) = true$).
+
+Additionally the Notaries have to name a 'verification price', that they charge for their work unrelated to the actual outcome of the transaction (it successfully happens or not). This prevents the Buyers from creating unlimited queries for free.
+Using this function, the WibsonTree protocol builds a binary Merkle-tree-like structure with hashing, which allows for DAG and cryptographic proof creation. Proof is important, so the seller can be sufficiently identified on the blockchain and compensated after the data transaction successfully went through with the buyer.
+Important to point out, while the design talks about, how the seller can withdraw consent to the data being sold, neither of the sources (\cite{futoransky2020wibsontree}, \cite{travizano2020wibson}) properly discuss exactly what happens and how in this given case.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{images/wibson_tree.png}
+    \caption{wibson protocol visualized}
+    \label{fig:wib_tree_explain}
+\end{figure}
+
+
+
+This approach, however builds on raw data, that must be stored for the matching criterion to be calculated for every data request. In this form this can lead to PII leaks.
+This warrants the need for a 2-step process, that anonymises the data first, then calculates the criterion.
+The first step can be a good aggregation process, that generates a non-retraceable output. Then this can be 'fed' into the matching criterion and provide data to buyers this way.
+Another good option is to collect already in a way that gives it some secrecy (e.g. age range, instead of age, geographical polygon instead of city). This, however is not possible with all kinds of information, those will need a case-by-case analysis.
+Using the Wibson protocol, the seller can only get verification for the anonymised data. It's important to invent a way to be able for the proof to be connected back to the original Seller.
+
+\clearpage
+
+\section{Methodology and design}
+
+This thesis is written in collaboration with the company Fixmeapp AB, that is a booking platform. The research questions, business cases and design decisions are defined in a way, to fulfill the needs for a booking platform, later a data market.
+
+\subsection{Research problems}
+Based on the results and the gaps of the literature review and the business request of the company (Namely to build a scalable data marketplace model, that is human-centric and ethical by design) the following research question are posed:\\
+\textbf{RQ 1}: Can a contribution system designed for commercial use operate on at least the FACT principles? (Preferably conform to other ethical guidelines too)? \label{RQ1}\\
+\textbf{RQ 2}: Is a 2-step data collection and criterion matching process sufficient to create a wibson-like protocol for ethical data economy model? \label{RQ2}\\
+\textbf{RQ 3} :What proof can be generated, that still allows for the seller to be rewarded? \label{RQ3}% to be revised
+\subsubsection{Metrics}
+Research questions two and three are straightforward to answer and for the answer to be evaluated. Research question one does need some way of measuring success, however. The FACT principles are fairness, accuracy, confidentiality and transparency, all of which can be assigned a measure;
+\begin{itemize}
+    \item fairness: This thesis defines fairness for users as equality in contribution; meaning every user should be rewarded the same, on a per contribution basis. For this, the (discrete) Gini coefficient should be a good measure \cite{RePEc:oxp:obooks:9780198281931}: %Gini coefficient
+    \begin{equation*}
+     G = \frac{\Sigma^{n}_{i=1}\Sigma^{n}_{i=1}\| x_i-x_j \|}{2n(n-1)\overline{x}},   
+    \end{equation*}
+    where $n$ is the population, $x_i$ is the individual user's rewards and $\overline{x}$ is the average reward. A Gini coefficient of 0 reflects prefect equality between users, thus indicating a perfectly fair system, while a 1 means perfect inequality, meaning the system fails in upholding fairness.
+    \item accuracy: As we don't have an objective constant truth, rather a case-by-case one, based on what criteria the Buyer needs matching. A "No-Truth" accuracy measure is the best choice for an accuracy metric. It works based on Expectation-Maximization and the estimation that maximizes this expectation is \cite{dawid1979maximum}: %dawid-skene, bc we have overlap and objective tasks: Dawid, A. P., & Skene, A. M. (1979). "Maximum Likelihood Estimation of Observer Error-Rates Using the EM Algorithm."
+    \begin{equation*}
+        \hat{\pi}^{(k)}_{jl} = \frac{\Sigma_i \mathbf{I}_{ij} n^{(k)}_{il}}{\Sigma_l \Sigma_i \mathbf{I}_{ij}n^{(k)}_{il}},   
+    \end{equation*}
+    where $\mathbf{I}_{ij}$ is an indicator function for buyer $i$, that is 1, when the criteria matches, 0 otherwise; $n^{(k)}_{il}$ is the number of attributes Buyer $k$ is trying to match.
+    A more intuitive interpretation is 
+    \begin{equation*}
+        \hat{\pi}^{(k)}_{jl} = \frac{\text{\# times buyer $k$ records a non-match $l$ when looking for criteria $j$}}{\text{\# users seen by buyer $k$ matching criteria $j$}}
+    \end{equation*}
+    \item confidentiality: This thesis aims at creating a privacy preserving contribution system, so  confidentiality should come from this aspect. 
+    Privacy preserving can be best measured with differential privacy that is defined by \cite{bugliesi2006automata}: %differential privacy 
+    \begin{defi}
+        A randomized function $\mathcal{K}$ gives $\epsilon$-differential privacy if $\forall$ datasets $D_1$ and $D_2$ differing on at most one entry, and all $S \subseteq \textit{Range}(K)$,
+        \begin{equation*}
+        \text{Pr}[\mathcal{K}(D_1) \in S] \leq exp(\epsilon) \times \text{Pr}[\mathcal{K}(D_2) \in S],
+        \end{equation*}
+    Where $Pr[.]$ is the privacy of the data.
+    \end{defi}
+    A low (close-to-0) $\epsilon$ value means high confidentiality, but low accuracy of the data, while a high one (5+) is low on confidentiality, but allows for better accuracy. This is a trade-off that has to be accounted for in design. The balance should be somewhere in the middle.
+    
+    \item transparency: This aspect is the hardest to measure and quantify. In their book  \cite{spagnuelo2016metrics} they managed to narrow down transparency to 8 metrics, accuracy being one of them. followed by currentness, conciseness, detailing, readability, availability, portability and effectiveness. As the scope of this thesis only has access to input data and no user or buyer interaction, (other than accuracy) the only realistic measures for this system is portability and effectiveness. %information symmetry ratio Turilli, M., & Floridi, L. (2009). "The Ethics of Information Transparency."
+    \begin{itemize}
+        \item Portability:
+        \begin{equation*}
+            P = \begin{cases}
+                0, \text{if no information is available}\\
+                0.2, \text{if available in any open format}\\
+                0.4, \text{if available as structured data}\\
+                0.6, \text{if available in non-proprietary format}\\
+                0.8, \text{if uses URI}\\
+                1, \text{if based on linked data}\\
+            \end{cases}
+        \end{equation*}
+        Portability describes universality of the data: how easily it can be transferred and reused in other systems.
+        \item Effectiveness:
+        \begin{equation*}
+            \mathcal{E} = \frac{\Sigma^{n_I}_{i=1}e_i}{\Sigma^{n_I}_{i=1}P^E_i} = 1 - \frac{\Sigma^{n_I}_{i=1}v_i}{\Sigma^{n_I}_{i=1}P^E_i},
+        \end{equation*}
+        where $n_I$ is the count of the output information upon query, $P^E_i = e_i + v_i$ is the number of questions appropriate to the effectiveness metric, divided into answered ($e_i$) and unanswered ($v_i$) questions.
+        Effectiveness measures how good the output information is in answering questions such as: what? who? why? when? where?
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Reformulation}
+Now that we have defined the metrics for the FACT principles, \textbf{RQ 1} can be reformulated as follows:\\
+\textbf{RQ 1r}\label{RQ1r}: Can a contribution system designed for commercial use achieve;
+\begin{itemize}
+    \item A Gini coefficient of $G < 0.5$
+    \item Relatively high accuracy: $\hat{\pi}^{(k)}_{jl} \leq 1 \text{ , } \forall k$ and some criteria $j$
+    \item Relatively high confidentiality: $\epsilon < 5$
+    \item Portability of $0.4$ or higher
+    \item Effectiveness $\mathcal{E} > 0.5$
+\end{itemize}
+
+\subsection{Methodology}
+For this PoC to be formulated according to the three research questions, while still being a viable tool for the business setting laid out earlier, first possible business scenarios are laid out. After that the participants of the data market are defined, a decision is made between a decentralized and centralized model as well. Collecting, handling and storing the data is defined later in accordance with ethical and legal guidelines. Finally attack surfaces are laid out to show the possible internal and external threats and theoretical limitations of a framework like this. It is important to remember, while the design branches out and considers the whole of an ethical data market framework, the proof of concept and thus the scope of this thesis is limited to the contribution system of aforementioned data market.
+
+\subsection{Possible business scenarios}\label{sec: business_scen}
+Designing this framework requires it to function in certain ways, given predefined scenarios. Here we discuss three of the most likely cases that this system would be used in. We indicate in each case studied:
+\begin{itemize}
+    \item the stakeholders,
+    \item the data collected and used,
+    \item the sensitivity of different types of data,
+    \item how this data is likely to be used and what the path of said data is,
+    \item and finally analyze what critical functions the case requires and what are dangerous aspects, if any.
+\end{itemize} 
+The three scenarios analyzed here are a marketing campaign, a product development case and service provider self-improvement. The data involved in these cases is discussed in a manner that is realistic with regard of Fixmeapp business model as a booking company and what data could be realistically collected this way.
+
+\subsubsection{Case 1: Marketing campaign}
+In this first likely business case, the buyer would use the bought data for launching a marketing campaign. This can mean a marketing company or a marketing department of e.g. a skincare product company. The stakeholders in this case are; the Buyer (Marketing team/company), Governor (Fixmeapp), User(s). The data collected and stored about the user through bookings are manifold and most of it is quite valuable for the buyer in this case. The data in question in no particular order:
+\begin{itemize}
+    \item Geographical polygon data (same idea as can be seen with Wibson protocol \cite{futoransky2020wibsontree})
+    \item Demographic data (age, biological sex OR gender, etc.)
+    \item Booking history (with one particular company or all together, frequency can be inferred from these)
+    \item (Based on booking history and geographical polygon, some sort of salary range can be inferred) % maybe? source?
+\end{itemize}
+Geographical polygon data and demographic data (for example; a male in their 30's, living in the general East-Uusimaa area) is not PII. Note, if the geographical polygon is not defined carefully/generally enough, it can lead to some sort of identification, combined with other data. Booking history with a particular partner in general is not sensitive, if stored correctly. (Bad example: male hair dying from blond to brunette, 10:30, [date], [saloon location]; Good example: male hair dying, [morning/afternoon/after work hours]). Data presented and purchased this way can be used to narrow down customer personas/profiles. These then can be used to design adverts or discount campaigns that accurately hit these customers, be it for retention or expanding client circles.\\
+In this example the data would be generated by the users through booking, sent and stored by Fixmeapp and can be bought by the marketing departments/companies, that the users would be informed about. This process does not protect users against data reselling by the marketing companies, that could be for example a contractual obligation for the parties involved.\\
+
+\subsubsection{Case 2: Product development}
+In this business case the buyer acquires data in order to develop an existing or a new product, based on users of e.g. 
+beautician services and the providers themselves. The stakeholders in this case are; the buyer (Product company), Governor (Fixmeapp), User(s) and Provider(s). The relevant data is much more narrow in this case, than the previous one, as much of the useful information, like what climate the product will be used in, has to be inferred from e.g. geographical polygons. Information that can prove useful:
+\begin{itemize}
+    \item Geographical polygon data. For inferring weather and humidity conditions, (tap) water quality.
+    \item Demographic data (age, biological sex OR gender, etc.). This allows the producer to paint an accurate customer persona
+    \item Booking history. For the same reasons as above. (Which saloons buy it, what kind of people want to use them)
+    \item Allergies. There may be skin allergies affecting a larger portion of the customer population, that has to be taken into account when developing for example the recipe of a cream.
+\end{itemize}
+The first two bullet points still do not qualify as PII, given they are collected and stored in a reasonable manner. Booking history of a particular kind of provider (beautician - skin care, hairdresser - hair products, etc.) is in vast majority of the cases not enough to enable identification of any individual. Allergies, are however, different. This is health record data and should be stored and handled accordingly. \\
+Similarly as the previous example, the data would be generated by the users through booking, sent and stored by Fixmeapp and be bought by companies, that the users would be informed about. This process does not protect users against data reselling by the marketing companies, that could be for example a contractual obligation for the parties involved. This second part is crucial in this case, as we are dealing with data qualifying as health record.\\
+
+\subsubsection{Case 3: Service provider}
+In this business case the service providers (at whom the users can book services through Fixmeapp's platform) want to improve the services they offer. They need data generated by the booking customers to see the pain points/shortcomings of their services (e.g. wrong opening hours, not offering a popular service).
+The stakeholders in this case are; the buyer (Provider), Governor (Fixmeapp), User(s). The relevant data are things that are directly connected to the booking, circumstances of these and aftercare (e.g. ratings, what the user liked, what they did not like). More accurately:
+\begin{itemize}
+    \item Geographical polygon data. To understand the general range where they attract customers from and where they have competition because of this.
+    \item Demographic data (age, biological sex OR gender, etc.). The sort of people booking their and similar services.
+    \item Booking history. How often customers return, how often they go to competition for similar services, potentially what sort of other services they book together with the services provided by the provider.
+    \item Ratings and complaint data. Crucial for identifying customer needs and pain points.
+    \item (Based on booking history and geographical polygon, some sort of salary range can be inferred. This can help with pricing strategies.)
+\end{itemize}
+Just as with the other two examples, the first two points should not be able to be used for identification of a person. Combined with booking information, these all together should still not be enough to identify a person. Information acquired this way about competition should also not conflict with existing legal frameworks. (Prices, services available, products used are types of information, that a throughout competition analysis could reveal.) All listed data can be used to define competitive pricing and cater to a more optimized audience. The path of the data should be traceable throughout its journey, however an identical problem to the previous two cases arises; there is no way to guarantee protection against reselling the data.
+All the business cases feature problems with secondary data markets or data reselling. This will be addressed later in this chapter, under Section \ref{sec:attack_surf}.
+
+\subsection{Design decisions}
+A data contribution system like this naturally poses a series of design questions. Firstly, while the solution is mostly based on the WibsonTree concept, there are several significant differences to it, when compared. The most important topic is probably centralisation. Originally the Wibson-system was designed to serve a marketplace of several Sellers, less, but still significant amount of Buyers and Notaries. These Notaries can be either individuals or legal entities, who possess ground truth on the sellers' information and are able to verify it, while having public identities and a verifiable off-chain reputation. \cite{travizano2020wibson}
+They are not assigned to transactions automatically, if an entity qualifies, their role as a Notary is an agreement of all parties.
+As anyone can take on any role, so long as they qualify and there exists no central authority/control figure makes the concept decentralized in core.\\
+Fixmeapp's use case differs in this aspect; For user data transactions they position themselves as the Notary and to some degree the Seller. Table \ref{tab:decentral_compare} shows what trade-offs this means.\\
+
+\begin{table}[h!]
+\centering
+\caption{Comparison of the decentralized and centralized approaches.}
+\label{tab:decentral_compare}
+\begin{tabular}{llllllllll}
+\cellcolor[HTML]{343434}{\color[HTML]{FFFFFF} Aspects} & \cellcolor[HTML]{343434}{\color[HTML]{FFFFFF} Decentralized marketplace} & \cellcolor[HTML]{343434}{\color[HTML]{FFFFFF} \begin{tabular}[c]{@{}l@{}}Non-conventional\\ centralized marketplace\\ (Fixmeapp)\end{tabular}} &  &  &  &  &  &  &  \\ \cline{1-3}
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Authority figure} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}None} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}Governor (Fixmeapp)} &  &  &  &  &  &  &  \\ \cline{1-3}
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Query interaction participants} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}Seller, Buyer, Notary} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}User, Service provider, Governor} &  &  &  &  &  &  &  \\ \cline{1-3}
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Data storage} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}\begin{tabular}[c]{@{}l@{}}Client side, reference of the \\ data is on the blockchain.\end{tabular}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}\begin{tabular}[c]{@{}l@{}}SQL database, reference to\\  the data in The Marketplace\end{tabular}} &  &  &  &  &  &  &  \\ \cline{1-3}
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Data auditor} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}Notary} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}Governor (Fixmeapp)} &  &  &  &  &  &  &  \\ \cline{1-3}
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\begin{tabular}[c]{@{}l@{}}Compensation currency\\  for the Sellers and Notaries\end{tabular}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}Cryptocurrency tokens} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}\begin{tabular}[c]{@{}l@{}}Fixmeapp internal \\ economy tokens\end{tabular}} &  &  &  &  &  &  &  \\ \cline{1-3}
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Wallet type} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}Ethereum Master Wallet} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}User account wallet} &  &  &  &  &  &  &  \\ \cline{1-3}
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Entities receiving compensation} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}Seller, Notary} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}User, Governor} &  &  &  &  &  &  &  \\ \cline{1-3}
+\end{tabular}
+\end{table}
+
+A centralized marketplace approach benefits the company, as only having to share profits with its client on the user side, not distribute it amongst multiple entities, like in a decentralized setting. As Fixmeapp being the only authority figure, it also holds all the responsibility and it is a public and legally liable party. Users this way only need to trust one entity and they have legal ways to hold that entity accountable, making this model permissable for an ethical model.\\
+\noindent{For} the company this is of course the more beneficial case, while still keeping to the original protocol in privacy aspects. For the rest of thesis, the definitions will change as following:
+\begin{itemize}
+    \item \textbf{User(s)}: The producers and owner's of the 'user data'. Any transactions involving the User's data will earn compensation for the User. They are not selling the data themselves, but they do consent to their data being part of the economy and which parts may be.
+    \item \textbf{Service provider(s)}: They are the buyers of the Users' data. They require the data to provide the services to the users booked through the Fixmeapp platform. Further more they can make queries to the Governor for market or advertising research to buy user data.
+    \item \textbf{Governor (Fixmeapp)}: They take on the Notary duties (verifying matches and signing them), as well as responding to queries by Service providers. This way they are the one that actually sells the data and takes a cut from the income generated by the transaction and forwards the rest to the Users.
+\end{itemize}
+The next design objective is regarding data encryption. It is important to decide when and where raw(unencrypted) data is stored/used, as well as when and how many times an encryption action is performed on the data. This study considers three probable designs for this.\\
+First and most intuitively we consider the wibson protocol. It operates on a decentralized model, with heavy user interaction; The Users have their data stored on client side, with a hashed reference (created by Merkle tree encoding) on a blockchain, that is then queried by the Service providers, but each user has to individually respond to the query. This would require near-constant user activity on a marketplace for most of the userbase for the data to be considered statistically significant. In the case of booking apps, such as Fixmeapp, this near-constant activity of most of the userbase is not realistic to achieve, as booking applications are used on average three times a week. (We use this number for the thesis as it is a proof of concept. Internal numbers are different, but also communicate, that the engagement with the application is not constant.)\\
+Second consideration was applying the wibson protocol, but the Governor entity stores all the raw user data. The Users have a choice in what is being stored and what of that can be shared. For the data transactions the Governor makes statistics/aggregation of user data available to the Buyers (advertises) about the userbase when queried. These queries still take resource investment from the Buyers, so they can not infinitely make queries. If the Buyers deem the data valuable enough to purchase, the Governor confirms the validity and accuracy of the stored data, and if it is up to standards, completes the transaction and sends users their compensation. This version does not require a near-constant userbase activity, while still holding up standards of ethicality, as Users decide what data can be shared about them and this consent is withdrawable at any time. This, however heavily relies on a secure data storage method, as storing data unencrypted is a major threat in case of a data leak. Encryption happens on every query, similarly to the previous case.\\
+Third consideration was an encrypted storage. The user data is collected on a secure server that belongs to the company. The raw data will be stored for the minimum amount of time possible, this thesis is written under the assumption, that this period is 30 days. Right after collection the data is pseudo-anonymised and encrypted in a way that the regulations define (e.g. allergies are considered health-related data, thus sensitive data and so they require higher level security.) Once the user chooses who they are fine sharing their data with, the commercially relevant data is collected and gets encoded in a Merkle tree structure, that is stored after. Only these trees are accessible by outsiders (Buyers). This Merkle tree then can be queried for inclusion, for example geographical polygon, and all criteria matching users can be extracted for a transaction. User consent can still be withdrawn at any time, as legal base for using the data is consent according to GDPR \cite{GDPR2016} and withdrawal right comes from the right to erasure.\\
+
+After careful consideration of all three design paths, the third one wins out on safety, privacy-preservation and overall suitability for the situation. This design is suitable, as it does not require constant User attention, just a one-time setup and consent management. Furthermore, it is only minimally dependent on infrastructure and both User and Buyer friendly. As data is only stored for a limited time, and gets pseudo-anonymised as soon as that is possible and reasonable, even the unhashed data is less likely to have PII in case of a data leak. The public-facing interface of this design only shows Merkle trees that are hashed and provably resistant to many cyber attacks, keeping the users' data and identity safe.
+
+\subsection{Handling user data}
+After discussing, how it is most optimal to deal with and store data, now we need to consider what type of data the project is handling. This section will be divided into two topics: What sort of data is queried and based on that what sort of data should we collect from the users, to fulfill these needs best to our ability.\\
+As can be seen from the business cases the data we need to collect is 
+\begin{itemize}
+    \item Geographical polygon,
+    \item Demographic data,
+    \item Contact data (this is purely for the booking functionality),
+    \item Booking history,
+    \item Ratings and complaint data,
+    \item Allergies to relevant products.
+\end{itemize}
+% everything below here is WIP and will be completed with the proof of concept
+The first two items should be collected in a bucketed way, as in creating a mapping between values and the buckets (age - age range, city - polygon). Contact information is something that is only a technical requirement, so it needs to be encrypted and preferably stored separately from other data, that will be used in the data market. Booking history, as discussed in Section \ref{sec: business_scen}, needs to be stored in a way, that makes identification of an individual difficult. It also needs to be stored in a way, that supports regular updates. Ratings and complaint data should be similar, however it is more sensible to store it connected to the service providers, rather than the individuals. Allergies are considered health data \cite{GDPR2016}, thus should be handled according to the relevant regulations per region.
+
+
+\subsection{Attack surfaces}\label{sec:attack_surf}
+%WIP
+One of the first things to look out for in any system connected to a database is injection attacks. There are several types of these attacks \cite{halfond2006classification}, but all of those use some way to query the database in unintended ways. Proper input sanitisation and access/role management should protect against most common form of attacks. There are other NoSQL database specific vulnerabilities \cite{fahd2019comparative}, that require their own solutions.
+One of the main problems the system faces is already laid out by \cite{hyrynsalmi2023balancing}. Soon as data leaves our system, transparency, user protection and reselling protection can no longer be guaranteed by the system. Data (and other digital goods) need to be decrypted or "released from protection" to be consumed, to be used. This is known as the 'analog hole' in Digital Rights Management \cite{haber2003if}. Even tough the term is 'overly restrictive' in the words of the author, as even this case is still in a digital form, the takeaway is that using purely software solutions it is not plausible to protect the product, which is data in this case. To address this there should be policies held up by trust and/or law (most likely in the form of inter-organizational contracts). Even this gives little protection against truly malevolent actors, even if we were to consider blockchain as a solution. This attack surface proves that (ethical) data governance needs both technical and legal layers for defense. 
+Merkle tree structure is also preventing various attacks on hash-tree structures \cite{fmerg2022pymerkle}: Second-preimage attacks with appending payloads on each level and CVE-2012-2459 DOS.
+
+\clearpage
+
+\section{Proof of concept}
+
+The design decisions and business directions leave us with:
+\begin{itemize}
+    \item a centralized system,
+    \item with three types of participants: User, Service Provider and Governor,
+    \item that pseudo-anonymises data,
+    \item encodes it in a Merkle tree based object,
+    \item while enabling User contribution tracking.
+\end{itemize}
+Figure \ref{fig:marketplace_new} shows the design of the marketplace model based on the decisions made in Section 3. The contribution system, whose PoC is the scope of this thesis, is the interface between the Users' side and the marketplace.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{images/market_new.png}
+    \caption{Fixmeapp's marketplace model, based on the design decisions and business cases in Section 3}
+    \label{fig:marketplace_new}
+\end{figure}
+
+The data, that the system encodes is the Users'
+\begin{itemize}
+    \item Geographical polygon,
+    \item Demographic data (In this proof of concept: gender and age range),
+    \item Booking history (In this case the time of their latest appointment),
+    \item Ratings and complaint data,
+    \item Allergies
+\end{itemize}
+Contact data (Name, phone number, e-mail address) are stored in the database for the booking functionality, but not encoded in the Merkle tree structure and cannot be queried by outsiders.
+The two programming languages that have a reasonable implementation of the Merkle tree are Python and JavaScript. For the generally better compatibility with any given system and better integration with Fixmeapp's backend, Python is the programming language of choice for this PoC. For generating test data, a python script was used, to simulate a base of 10 000 users.
+Considering all aspects of the design and the resources available for the purposes of this thesis, the PoC described in the following subsections was created.
+
+\subsection{Requirements}
+One of the goals of this PoC was to make it as universally compatible as possible. This is reflected in its relative self-containment, as the system requires raw data in some tabular form and provides an output in a similar fashion. This is mostly database system independent, leading requirements only in programming packages and some computational power.
+The program requires:
+\begin{itemize}
+    \item Python ver. 3.10+
+    \item pymerkle package (ver. 6.1.0)
+    \item pandas package (ver. 1.5.1)
+    \item numpy package (ver. 1.23.4)
+\end{itemize}
+Package versions are not the minimum required versions, but the ones used in the creation of the PoC at the time of the writing of this study.
+For computations my personal computer was used, with a 11th Gen Intel(R) Cote(TM) i3-1115G4 @ 3.00GHz processor and 8 GBs of RAM. The runtimes should be considered accordingly.
+
+\subsection{Data generation}
+It is neither reasonable nor in the spirit of the study to use real user data for the proof of concept. This means test data has to be generated in order for the system to be properly tested. For this I used the script found in section \ref{code:datagen}. The following bash command was used to generate the data:
 \begin{verbatim}
-	\subsection{Ohm's law}
-	\label{sec:ohmslaw}
-	...
-	...as discussed in section~\ref{sec:ohmslaw}, the resistance...
+    python3 ./generate_table_csv_data.py 
+    --output-dir "generated_table_data" 
+    --rows-per-table 10000 
+    --seed 69
 \end{verbatim}
-The tilde placed between `section' and `\verb+\ref{sec:ohmslaw}+' not only puts 
-a normal space between the two, but also binds them so that they are not split 
-over separate lines if the two occur at the end of a line. Put a tilde between 
-all labels and the reference number.
+The output was saved in the file ./generated\_table\_data/users.csv in the repository. A snippet of it can be seen on Figure \ref{fig:data_gen_output}. \\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{images/data_gen_output.png}
+    \caption{Snippet of the generated data for 10000 users, random seed used: 69}
+    \label{fig:data_gen_output}
+\end{figure}
 
-For figures and tables, place the label text after \verb+\caption+. For simple 
-equations, the label is placed after \verb+\begin{equation}+. You can reference
-individual items such as equation~(\ref{eq:ohm1}) in a grouped equation 
-enviroment like \verb+subequations+ or an item in an itemised list like 
-item~\ref{list:intro} on page~\pageref{list:intro} or the system of 
-equations~(\ref{eq:ohm}) by putting a \verb+\label+ appropriately.
 
-\subsection{Citation}
+\subsection{Proof of concept}
+For better showcasing the proof of concept was written in a jupyter notebook, named merkel\_encoder\_PoC.ipynb. The first step is to read the generated user data, I used pandas for that. Output can be seen in Figure \ref{fig:output_1}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/output_1.png}
+    \caption{First row of the Dataframe, the first user}
+    \label{fig:output_1}
+\end{figure}
+This data is not completely representative of an actual user base, but it has characteristics that mimic real data sufficiently enough:
+The user ids are unique, incrementing numbers. The names are made up of a first name : "User" and a Family name: [incrementing number]. E-mail address is based on the users full name. City is randomly chosen of a list of cities, similarly to complaint and allergies. Age is a random integer between 16-85 and rating is a random integer between 1-5 (stars). The time of the latest booking is probably the least realistic, as it is an incrementing date, starting from 2025 January 1st at 9:00 and incremented by 3 hours every row. Gender is chosen at random from the free options of "other","female" and "male". Phone number is a prefix and a random six digit number after that.\\
 
-The list of reference must be carefully made, following one of many different 
-styles. Which you choose depends on the field of your thesis. However, citing 
-using footnotes is not allowed in your thesis\footnote{Adding comments in 
-footnotes is \underline{not} allowed either.}. A short reference list can have 
-entries in the order in which they are cited, but if your list is long, arrange 
-the entries in alphabetical order. Read appendix~\ref{app:reference} for a 
-fairly thorough discussion of how to cite work in academic writing and make a 
-bibliography or list of references. Remember that referencing is a very 
-important part of your thesis, so be meticulous and thorough.
+Next step is the pseudo-anonymization of the data. In this proof of concept I used two, primitive case-matching bucketing functions for bucketing age into age ranges and cities into geographical polygons. These will be used by the class FixmeTree \ref{code:FixmeTree}, in a static method of the class that will process the entries, and then removes information fit for personal identification (Name, e-mail, phone, age, city). Notably it leaves us with 8 columns ('gender', 'bookingtime', 'complaint', 'satisfaction\_rating', 'allergy', 'age\_range', 'geopolygon' and most importantly user id), allowing for retracing contribution with the unique user id. To best showcase how this works, it is best to take a small-scale example.  Figure \ref{fig:output_2} shows how pseudo-anonymization changes the user data seen in \ref{fig:output_1}, that we will work with for now.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/output_2.png}
+    \caption{Data entry after pseudo-anonymization}
+    \label{fig:output_2}
+\end{figure}
+Now that the data has been pseudo-anonymised, it is time to encode it in a Merkle tree. For this we will use the FixmeTree class, initialized with the hashing algorithm of 'SHA256'. We chose this, as it seems to be standard algorithm in relevant literature (\cite{liu2021merkle}\cite{papamanthou2024reckle}\cite{zhu2021improved}), for its relatively cheap computing cost.
+The tree initialization and encoding looks like the following in code:\label{answer:rq2}
+\begin{verbatim}
+    tree_medium = FixmeTree(algorithm='sha256')
+    data = FixmeTree.preprocess_entry(df.iloc[0])
+    for i in range(len(data)):
+   tree_medium.append_entry(data.iloc[i])
 
-\subsubsection{Bibliography or list of references}
+    print(f'tree size: {tree_medium.get_size()}')
+    print(f'tree state: {tree_medium.get_state().hex()}')
+\end{verbatim}
+One can see, that this package implements Merkle trees in a way, that every attribute needs to be added to the tree one-by-one as leaves. This implementation of the tree is a binary tree, so having 8 ($2^3$) attributes utilizes resources well. The output is a tree with 8 leaves, 3 levels and a root hash of
+\begin{verbatim}
+5908decf242bb29d443cb6ccfec1c6a65ae867af160915f274c0f43b7bc7bd2f    
+\end{verbatim}
+as can be seen in Figure \ref{fig:output_2.5}.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{images/output_2.5.png}
+    \caption{Merkle tree encoding of the first entry}
+    \label{fig:output_2.5}
+\end{figure}
 
-Find here a list of some of the typical entries in the bibliography and the 
-information they must contain. For a more comprehensive list, see 
-\cite{aaltolib}. See appendix~\ref{app:reference} for details on how this 
-information must be typeset in different reference styles.\\
+That concludes setting up the Merkle tree structure, querying method is next:\\
+\noindent First, a proof needs to be generated, that something is included on a certain leaf / leaf position on the tree (that is size 8 in our case). In this example we will use position 2, that is gender. We also need a root hash, that we have from the previous code snippet. The base is going to be the information that we want to know it is included. For this, ideally, just hashing the information would be enough, but there is some difference between the implementation of the package and the documentation, so in this case we need to use a one-leaf tree for encoding the query. Implementation of this can be found under \ref{code:verification}. A successful verification returns None (NoneType object in python representing no value), that can be seen in this example with querying for 'male' on leaf 2. But upon querying the same leaf for 'female' or 'other' we get an "InvalidProof: Base hash does not match" error, signaling that the leaf on position 2 in the Merkle tree and the query leaf does not match. (In reality this method checks if their hashes are matching, but if they are hashed with the same algorithm and salting, that they are here, they should have the same hash if they are the same information.) This concludes the small-scale example.\\
 
-\noindent
-A \underline{book} entry must contain the following:
-\begin{itemize}
-\setlength{\itemsep}{-3pt}
-\item[--]author(s) 
-\item[--]title of the book
-\item[--]edition, if there are more than one
-\item[--]publisher
-\item[--]place of publication
-\item[--]time of paublication (typically year)
-\item[--]name of series, if the book is part of a series
-\end{itemize}
-References \cite{Kauranen}--\cite{Koblitz} are examples of books in the 
-bibliography. Refering to a particular place in a book, for example like this, 
-\cite[s.\ 83--124]{Koblitz}, is a good practice. The reader can thus find the 
-referred matter easily.\\
-
-\noindent
-The following must be found in an \underline{article} entry:
-\begin{itemize}
-	\setlength{\itemsep}{-3pt}
-\item[--]author(s)
-\item[--]title of the article
-\item[--]name of the journal or magazine where the article is published
-\item[--]volume number of the journal or magazine
-\item[--]issue number of the journal or magazine
-\item[--]year of publication
-\item[--]page numbers of the published article
-\end{itemize}
-References \cite{bcs}--\cite{Deschamps} are examples of articles in a 
-bibliography.\\
-
-\noindent
-An \underline{edited book} or \underline{compilation} of contributions, 
-typically chapters or articles, from several authors having one or more editors 
-or a compiled conference proceedings must have the following information:
-\begin{itemize}
-\setlength{\itemsep}{-3pt}
-\item[--]author(s) of the chapter or part
-\item[--]title of the chapter or part
-\item[--]mention the kind of publication `In book', or for conference 
-proceedings with no editor information use `In' before the name of the 
-conference proceedings
-\item[--]editor(s) of the compilation identified with (Ed.) or (Eds.)
-\item[--]name of the compiled book or conference
-\item[--]for a conference article, the time and place where the conference was 
-held
-\item[--]edition, if more than one
-\item[--]place of publication
-\item[--]publisher (may not exist for conference proceedings)
-\item[--]time (year) of publication
-\item[--]pages of cited contribution
-\item[--]name of series, if the book is part of one
-\end{itemize}
-References \cite{Sihvola}--\cite{Lindblom} are examples of references to a part 
-of a compilation.\\
-
-\noindent
-\underline{Theses} must have the following information:
-\begin{itemize}
-\setlength{\itemsep}{-3pt}
-\item[--]author
-\item[--]title of the thesis
-\item[--]type of thesis (bachelor's, master's doctoral, other)
-\item[--]name of university or institution
-\item[--]name of the department, faculty or degree programme
-\item[--]location/place of the university or institution
-\item[--]year of publication
-\end{itemize}
-References \cite{Miinusmaa}--\cite{Lonnqvist} are examples of theses in a 
-bibliography.\\
-
-\noindent
-\underline{Standards} must have the following:
-\begin{itemize}
-\setlength{\itemsep}{-3pt}
-\item[--]standard identifier and number
-\item[--]name of the standard
-\item[--]edition, if not the first
-\item[--]place of publication
-\item[--]publisher
-\item[--]year of publication
-\item[--]number of pages
-\end{itemize}
-Reference \cite{sfs} is an example of how a standard is entered in a 
-bibliography.\\
-
-\noindent
-An \underline{interview} entry must have the following details:
-\begin{itemize}
-\setlength{\itemsep}{-3pt}
-\item[--]name of the interviewee
-\item[--]position or t academic and/or professional title
-\item[--]organisation where the interviewee is placed
-\item[--]address of the organisation
-\item[--]a mention that the entry is an interview along with the date of the 
-interview
-\end{itemize}
-Reference \cite{interview} is an example of an interview entry in a 
-bibliography.
-
-Most scientific articles are available online nowadays and many also in printed 
-form. Articles from journals, magazines or other publications available 
-\underline{only online} must have the following details in the bibliography:
-\begin{itemize}
-\setlength{\itemsep}{-3pt}
-\item[--]author(s)
-\item[--]name of the article
-\item[--]name of the publication (journal or magazine)
-\item[--]type of publication
-\item[--]edition or volume
-\item[--]volume number and issue details of publication and article
-\item[--]year of publication along with details on possible updates: Updated, 
-date of update
-\item[--]mention `Accessed' and date when accessed
-\item[--]mention `Available' and URL or mention `DOI' ja DOI number (DOI=Digital
-Object Identifier).
-\end{itemize}
-References \cite{Ribeiro}--\cite{kone} are examples of how theses available 
-online are presented in a reference list. Additionally, references 
-\cite{Ribeiro} and \cite{Stieber} available both online as well as in print, so 
-the details are presented as for the corresponding entry in print and the 
-details of the online version are also given. Reference \cite{kone} is 
-available only online, so only those relevant required details are given.
-Unfortunately, the details on the edition, publication name and number are 
-often unavailable and so cannot be presented in the reference list.\\
-
-\noindent
-For a \underline{thesis that is only available online}, give the following 
-details:
-\begin{itemize}
-\setlength{\itemsep}{-3pt}
-\item[--]author
-\item[--]thesis title
-\item[--]type of medium (online, DVD, CD-ROM etc.)
-\item[--]type of thesis (bachelor's, master's doctoral, other)
-\item[--]name of institution or university
-\item[--]name of the department, faculty or degree programme
-\item[--]location/place of the university or institution
-\item[--]year of publication
-\item[--]date of citation
-\item[--]availability: mention `Available' and give the URL and/or mention `DOI'
-and the DOI number
-\end{itemize}
-Reference \cite{Adida} is an example of how a thesis available in electronic 
-form is entered in a bibliography.\\
-
-\noindent
-Reference \cite{webpage} is an example of an online stand-alone article, one not
-associated with any journal or magazine. Such an article is considered a work of
-its own. The details required of such a \underline{stand-alone webpage} 
-are:
-\begin{itemize}
-\setlength{\itemsep}{-3pt}
-\item[--] author(s)
-\item[--] title
-\item[--] mention `Updated' and date of update
-\item[--] mention `Accessed' and date of access
-\item[--] mention `Available' and the URL
-\end{itemize}
-If the article spans more than one page, the reference list must contain the URL
-of the page pointing to the entire article, typically its homepage, unless the 
-intention is to cite a particular page in the article.
+The large scale example will take the whole dataset. Building a huge binary tree of $10000 * 8 = 80000$ leaves, meaning a 17 levels deep tree, queried down to the leaves for each of the 10000 users. That is computationally way too expensive compared to building 10000 trees, that are 3 levels deep. For this I chose to go with the latter. Source code for the implementation can be found in Section \ref{code:large_examp}.
+It uses a for loop to run the leaf-appending mechanism that could be seen in the small example. The more interesting part is that for querying we need the whole tree object, so all created trees are stored in a pandas DataFrame. This took 10.4 s of computational time, meaning ~1 s per 1000 trees. This includes displaying the results, on the hardware specifications laid out at the beginning of this section. The results can be seen in Figure \ref{fig:output_3}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/large_encoding_output.png}
+    \caption{Large-scale example encoding output. Translation for the values: 'Missing: 0(0\%); Unique: 10000(100\%)}
+    \label{fig:output_3}
+\end{figure}
+Now this database of Merkle tree structures is ready to be queried. Our example query is going to look for users living in the London area in the UK, meaning their geopolygon is 'UK-London'. This is done by extending the small scale example's inclusion verification to larger datasets. This will be done using the test\_geolocation\_match method (implementation found under \ref{code:large_verif}).
+For every user, it attempts to verify the proof on the given attribute and criteria to match. If there is None returned, it appends that row, otherwise, we will get an InvalidProof exception, on which the search can just continue. The output is a list of indices, that can be used to query the actual data from the database holding the unencrypted data. The call
+\begin{verbatim}
+    london_users_lists = test_geolocation_match(hex_data, 'UK-London', 8)
+    london_users = df.iloc[london_users_lists]
+\end{verbatim}
+returns 1209 matching rows in ~0.9 s (Figure \ref{fig:output_4}). That is the time for inclusion verifying 10000 trees and retrieving the matching indices from a different data frame. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/london_match_output.png}
+    \caption{Output of the large scale inclusion matching}
+    \label{fig:output_4}
+\end{figure}
+Important to note, that here the matching returns only the row id and the original data is returned based on that. with generated unique user ids this process would be a bit more complicated, as it is not simple row-matching, but should run at a similar speed. 
 
 
 \clearpage
 
-\section{Research material and methods}
-
-This part is the core of your work, where you explain the methodological choices
-you made, its limitations, how you pick your research material or subjects, the 
-implementation of your study and the methods used. This section determines the 
-methodological strengths and weaknesses of your thesis. Any earlier description 
-of the method should limit itself to work done earlier by others. Here you tell 
-your reader what you have done.
-
-\clearpage
-
-\section{Results}
-
-Present the results of your study here and answer the research questions, asked 
-earlier in the thesis (in the introduction, perhaps), this study strives to 
-answer. The scientific value of your work is measured by the results you obtain 
-along with the arguments you give to back the answers to your research 
-questions.
-
-Be critical of the significance of your results. You may critically scrutinise 
-the results and your interpretation of the results here, or you may do so later 
-in the chapter with the discussion of your work or in the conclusions part.
-
-This part should discuss how reliable the data used in the study are. You may 
-discuss the reliability of the conclusions drawn from the study either in this 
-chapter or later in the discussions part. You may have the discussion in a 
-chapter of its own, separate from the summary or conclusions.
-
-
-\clearpage
-
-\section{Summary/Conclusions}
+\section{Discussion and conclusions}
 \label{sec:summary}
-
-This is where you tie up any loose ends. Tell your reader briefly and clearly 
-what you have done, what you have discovered, and the value of your discovery 
-in the context of similar work done earlier. Draw clear conclusions regarding 
-the research problem, sub-problems or hypotheses. You also discuss future lines 
-of study and new questions your study might have posed.
-
-As the author of the thesis, you alone are responsible for ensuring that the 
-layout, form and structure of your thesis adheres to the guidelines outlined by 
-your school. This template aims to help you meet these requirements.
-
-
+\subsection{Discussion}
+The goal of this thesis was to create a contribution system for an ethical data market that:
+\begin{itemize}
+    \item That can achieve 
+    \begin{itemize}
+        \item A Gini coefficient of $G < 0.5$
+        \item Relatively high accuracy: $\hat{\pi}^{(k)}_{jl} \leq 1 \text{ , } \forall k$ and some criteria $j$
+        \item Relatively high confidentiality: $\epsilon < 5$
+        \item Portability of $0.4$ or higher
+        \item Effectiveness $\mathcal{E} > 0.5$
+    \end{itemize} [RQ 1r \ref{RQ1r}], 
+    \item Has a 2-step data collection and criterion matching process that allows for creation of an ethical data economy model [RQ 2 \ref{RQ2}],
+    \item Generates some sort of proof that allows for the user account to be identified, even after encoding the data, for them to be rewarded for their contribution [RQ 3 \ref{RQ3}].
+\end{itemize}
+The analysis of the fulfillment of these criteria will not be in this order, but rather \textbf{RQ 2}, \textbf{RQ 3} and finally \textbf{RQ 1r}, as that requires a longer discussion.\\
+Research question two was partially achieved. The PoC reads the raw data, pseudo-anonymises it (step 1) and encodes it in a Merkle tree (step 2), as can be seen in the code snippet \ref{answer:rq2}. It has a criterion matching capabilities, showcased on Figure \ref{fig:output_4}, implemented in \ref{code:large_verif}. For achieving a protocol that is in a similar vein to wibson protocol a contribution system in itself is simply not enough. It needs to be connected to a data marketplace, so there could be a reasonable and fair comparison.\\
+Research question three can be answered based on what the PoC is capable of. A proof of inclusion or not inclusion can be generated for any tree and any leaf on said tree. This allows for criteria matching, giving a list of trees. These can then be queried for the user id, giving a way to retrace the original user as a Governor in the system.\\
+Research question one is the most extensive one. Due to the limited scope of the thesis it can only be partially answered in a way that one would deem satisfactory.
+\begin{itemize}
+    \item Fairness: the fairness measure chosen was discrete the Gini coefficient, that is calculated in this case from contribution. As this system could not be properly tested with a good amount of users and transactions, we can only calculate the Gini coefficient for the example. Let's suppose the reward is 1 unit per contribution, we have $n = 10000$ users, and an average reward of $\frac{1209}{10000}$.
+    \begin{equation*}
+        G_{\text{FixmeTree}}=\frac{\Sigma^{n}_{i=1}\Sigma^{n}_{i=1}\| x_i-x_j \|}{2n(n-1)\overline{x}} = \frac{\Sigma^{10000}_{i=1}\Sigma^{10000}_{i=1}\| x_i-x_j \|}{2*10000*9999*\frac{1209}{10000}}=\\
+        \frac{21256638}{24177582} = 0.87
+    \end{equation*}
+    This fails $G < 0.5$, failing this metric.
+    This is obviously signals inequality as only 1209 of the 10000 population contributed, which means only ~12\% of the population was rewarded and that is indeed unequal. querying any one geopolygon will bring the same results, all of them sitting around 12-13\% of the data. If it were a gender question, there would be ~33.3\% contributions, as the data is generated that way. For this estimation to be realistic it needs real users and real customers. Generating data with a better distribution would not be enough, as contribution is just as dependent on the queries as is it dependent on the data.
+    \item Accuracy: For accuracy the chosen metric was expectation maximization of the Buyer side. This would require multiple Buyers, but in the current example we only have one. Values are as follows: $k=1$, as there is only 1 Buyer; $n_{il} = 10000$, as they are trying to match the whole dataset. The calculation goes as follows:
+    \begin{equation*}
+        \hat{\pi}^{(k)}_{jl} = \frac{\Sigma_i \mathbf{I}_{ij} n^{(k)}_{il}}{\Sigma_l \Sigma_i \mathbf{I}_{ij}n^{(k)}_{il}} = \frac{8791}{1209}
+    \end{equation*}
+    Which larger than one, making it fail our criteria. This would always be the case however, unless the buyer is looking for something that is true for a majority in the database. With an increasing number of Buyers this will not change, because if they are looking to match the same criteria, they are going to get the same score, if they are matching something different, the criteria changes and cannot be counted towards the previous ones. The accuracy measure for this case seems to have been poorly defined. The Buyer is interested in users data, who is matching a profile. Accuracy should be calculated on the Buyers own goals of the data, or the truthfulness of the data provided by the user. It is unrealistic for this thesis to measure cases e.g. "How many users has actually bought a product the Buyer company advertised them from the customers data we provided". That leaves the second option, having to confirm truthfulness of the data with the users. The data is pseudo-anonymised in a way that is losing minimal information, and there is a way for the Governor entity to confirm validity of the data with the user, but that is sadly out of the scope of this thesis.
+    \item Confidentiality: The goal was to achieve a differential privacy $\epsilon < 5$. The problem is, that this is ill-defined for deterministic algorithms, as the goal of differential privacy is to make randomized outputs barely distinguishable from one another\cite{sharma2021differential}. A good privacy or integrity measure for Merkle trees would be hash-root collision probabilities \cite{kuznetsov2024merkle}. In this case that is $\frac{1}{2^{256}}$ for fixed pairs. For randomly chosen pairs, the birthday paradox applies, so in the case of $2^{128} (\approx 3.4 \times 10^{38})$ the chance would be about 50\%, but that is not a realistic user base for any application, so integrity is held up.
+    \item Portability: This metric is for universality of the data, meaning it scales inversely with confidentiality. The data encoded in Merkle trees is $P=0$, by default gives no information of the data. However, if the data is deemed interesting enough based on the queries, it is provided in a tabular format, making it structured data, giving $P \geq 0.4$. This being a purchase and privacy protection laws not permitting free distribution, that gives an upper bound of $P\leq0.4$, giving us $P=0.4$, fulfilling our goal.
+    \item Effectiveness measures how good the data is at answering questions (e.g. what? who? why?). In our example case, the output to the query of users living in the 'UK-London' area was $n_I=1209$. The posed questions relevant here was only the "where?", meaning all the questions have been answered. This metric is, however, biased in this PoC. There are fixed questions, that can be queried (gender, last booking time, complaint, satisfaction rating, allergy, age range, geographical polygon), for which the answer will always have effectiveness score 1. Other information is not stored in the Merkle trees, so there is no queryable information there, thus effectiveness metric, as defined in the research question cannot be realized. For where it is sensible, the effectiveness goal is fulfilled by the PoC.
+\end{itemize}
+The example showcased in the PoC did not fulfill the fairness, accuracy and confidentiality as defined. It did fulfill confidentiality goals defined for hash tree systems, which it is, portability and effectiveness goals, making it a partial success.\\
+This result leaves a lot to be desired. A lot of failures and unmeasurable aspects come from the scope being too small. Only as a working part of an actual data market is it realistic to judge the performance of the system on the FACT principles or other ethical frameworks. This is one, necessary future direction. It would allow for well defined attack surface research and implementation of sufficient counter measure, would allow for realistic data and realistic queries from Buyers, as well as performance metrics computationally.\\
+Additional future direction is to connect this system with a running database (for example postgreSQL), testing data reading and identifying users based on uniquely generated user ids. A good addition to this would be to refresh the user database every 30 days and add a cancellation/consent withdrawal policy for transactions. For a more nuanced Buyer query experience implementing query logic to these Merkle trees would be a good next step. For a more nuanced User experience a future implementation of Buyer tracking and consenting for transactions is a good direction. For datasets with large attribute counts, redefining the Merkle tree structure used here to be n-ary trees instead of binary may give a way to speed up querying, at a cost of increasing building time for them.
+\subsection{Conclusion}
+In this thesis a PoC was created for a Merkle tree-based, privacy preserving contribution system that is designed to be part of an ethical data market model. For that we posed three research questions, analyzed three possible business scenarios and the data relevant to those, to create a design that works best in fulfilling all of the above. The resulting system was implemented in python, using the pymerkle library, fulfilling the business requirements, answering RQ 2 and 3 and partially fulfilling requirements posed in RQ 1, partially answering it. While the PoC can be deemed mostly successful, for a real evaluation further research and testing in a data market environment is required.
 
 \clearpage
+
 %% Bibliography/ list of references
 %%
-\thesisbibliography
+%\thesisbibliography
 
-\begin{thebibliography}{99}
-
-%% A quick-and-dirty hack to add text between the bibliography section title
-%% and the first reference. You don't need this in your thesis, so remove it.
-  \item[]
-  \hskip-\leftmargin
-  \begin{minipage}{\textwidth}
-	This is the list of references to the sources cited in 
-	appendix~\ref{app:layout}. The list more or less follows the Vancouver 
-	style (IEEE). See appendix~\ref{app:reference} for a detailed exposition 
-	on cross-referencing and bibliography styles. Follow the description there.
-
-	\hspace{1em}The references are in alphabetical order here, which is the
-	typical way to organise the reference list. For a short reference list, the
-	other approach is to put the references in the order of citation.
-  \end{minipage}
-  \bigskip
-%% End of hack.
-
-  \bibitem{Bailey} Bailey, C., \textit{The Basics of Typography}. [Online].
-	\url{https://www.webfx.com/blog/web-design/the-basics-of-typography} 
-	(accessed on 14 July 2021).
-
-  \bibitem{Bringhurst} Bringhurst, R., \textit{Horizontal Motion. The Elements 
-  	of Typographic Style}, Point Roberts, WA: Hartley \& Marks, 1992. p. 26, 
-    pp.\ 25--36. Also available online as version 3.0 at  
-    \url{https://smallpressblog.files.wordpress.com/2017/11/bringhurstelementsselections1.pdf} (accessed on 7 May 2021).
-
-  \bibitem{aaltolib} Citation Guide: Making a bibliography, \textit{Aalto 
-	University Learning Centre}. Online article. Available  
-	\url{https://libguides.aalto.fi/c.php?g=410674&p=2797572}
-	(accessed on 14.7.2021)
-
-  \bibitem{Unna} de Buen Unna, J., \textit{Manual de dise\~no editorial}, 4. ed. 
-    corrigida y aumentada, Somonte-Cenero, Gij\'on: Ediciones Trea, 2014.
-
-  \bibitem{Dyson} Dyson, M. C., and Kipping, G. J., ``The Effects of Line Length 
-    and Method of Movement on Patterns of Reading from Screen,'' 
-    \textit{Visible Language,} vol.~2, no.~2, pp. 150--181, 1998.
-
-  \bibitem{Shaik} Shaikh, A. D., ``The Effects of Line Length on Reading Online 
-    News,'' \textit{Usability News}, vol.~7, no.~2, July 2005.
-
-  \bibitem{aaltovisual} ``Visual elements,'' \textit{Aalto University Brand 
-	Library}. [Online].
-	\url{https://www.aalto.fi/en/brand-library#/visual-elements/typography} 
-	(accessed 14 July 2021)
-
-  \bibitem{Wikilinelength} Wikipedia contributors, ``Line length,'' 
-    \textit{Wikipedia: The Free Encyclopedia}, Wikimedia Foundation, Inc., 
-    22 July 2004.
-    \url{https://en.wikipedia.org/w/index.php?title=Line_length&oldid=997524503}
-    (accessed 7 May 2021).
-
-  \bibitem{enwiki:1026690618} Wikipedia contributors, ``Leading,'' 
-    \textit{Wikipedia, The Free Encyclopedia}, 2021.
-    \url{https://en.wikipedia.org/w/index.php?title=Leading&oldid=1026690618}
-    (accessed 14 July 2021).
-
-\newpage
-%% The same hack again
-  \bigskip
-  \item[]
-  \hskip-\leftmargin
-  \begin{minipage}{\textwidth}
-	The reference list that follows are examples containing the required 
-	information about the cited sources, and it more or less abides to the 
-	Vancouver style (IEEE). See appendix~\ref{app:reference} for guidelines for 
-	making your reference list correctly.
-  \end{minipage}
-%\medskip
-%%
-
-  \bibitem{Adida} Adida, B., \textit{Advances in Cryptographic Voting Systems}, 
-	PhD Thesis, Massachusetts Institute of Technology, Cambridge, Massachusetts,
-	2006. Online document. Accessed 19.1.2007. Available: 
-	\url{http://crypto.csail.mit.edu/~cis/theses/adida-phd.pdf.}
-
-%% Note the '\' character after the full-stop and the capitalised initial in
-%% the author's name. It forces a normal-sized space between the full-stop and
-%% the initial. Otherwise a capital letter after a full-stop would imply the
-%% start of a new sentence, putting a space a little longer than normal.
-  \bibitem{bcs} Bardeen, J., Cooper, L.\ N. ja Schrieffer, J.\ R., ``Theory of 
-	Superconductivity,'' \textit{Physical Review,} 1957, vol.~108, no.~5, 
-	pp.\ 1175--1204.
-
-  \bibitem{Deschamps} Deschamps, G.\ A., ``Electromagnetics and Differential 
-	Forms,'' \textit{Proceedings of the IEEE,} 1981, vol.~69, no.~6, pp.\ 
-	676--696.
-
-  \bibitem{Itkonen} Itkonen, M., \textit{Typografian käsikirja}, 3rd edition, 
-	Helsinki, RPS-yhtiöt, 2007.
-
-  \bibitem{Kauranen} Kauranen, I., Mustakallio, M. and Palmgren, V., 
-    \foreignlanguage{finnish}{\textit{Tutkimusraportin kirjoittamisen opas opinnäytetyön tekijöille}, 
-    Espoo, Teknillinen korkeakoulu,} 2006.
-
-  \bibitem{webpage} Kilpeläinen, P., 
-	\textit{\foreignlanguage{finnish}{WWW-lähteisiin viittaaminen 
-	  tutkielmatekstissä}.} Online article. Updated 26.11.2001. 
-	Accessed: \url{http://www.cs.uku.fi/~kilpelai/wwwlahteet.html.}
-
-  \bibitem{Koblitz} Koblitz, N., \textit{A Course in Number Theory and 
-  	Cryptography. Graduate Texts in Mathematics 114}, 2nd edition, New York, 
-    Springer, 1994.
-
-%% An example of how to force hyphenation in Finnish. Note the use of quotation
-%% marks. \foreignlanguage affects quotation marks, since their use differs in
-%% different languages. Since this work is in English, the quotaion marks are
-%% used as they should be in English and hence are outside the marco.
-  \bibitem{Lindblom} Lindblom-Ylänne, S. and Wager, M.,
-    ``\foreignlanguage{finnish}{Tieteellisten opinnäytetöiden ohjaaminen},'' in:
-    Lindblom-Ylänne, S. and Nevgi, A. (Eds.), \textit{Yliopisto- ja
-    korkeakouluopettajan käsikirja}, Helsinki, WSOY, 2004, pp.\ 314--325.
- 
-  \bibitem{Loh} Loh, N.\ C., \textit{High-Resolution Micromachined 
-  	Interferometric Accelerometer}, Master's thesis, Massachusetts Institute of 
-    Technology, Cambridge, Massachusetts, 1992.
-
-  \bibitem{Lonnqvist} Lönnqvist, A., \textit{Applications of hologram-based 
-  	compact range: antenna radiation pattern, radar cross section, and absorber 
-  	reflectivity measurements}, Doctoral thesis, Teknillinen korkeakoulu, 
-    Department of Electrical and Telecommunications Engineering, 2006.
-
-  \bibitem{Miinusmaa} Miinusmaa, H., \textit{Neliskulmaisen reiän poraamisesta
-	kolmikulmaisella poralla}, Master's thesis, Teknillinen korkeakoulu,
-	Department of Mechanical Engineering, Espoo, 1977.
-
-  \bibitem{interview} Palmgren, V., Planning Officer, Teknillinen korkeakoulu, 
-    library, Otaniementie 9, 02150 Espoo. Interview, 15.1.2007.
-
-  \bibitem{kone} Pohjois-Koivisto, T., ``\foreignlanguage{finnish}{Voiko kone 
-	tulevaisuudessa arvata tahtosi?,}'' \textit{Apropos.} Online publication, 
-	February, no.~1, 2005. Accessed 19.1.2007. Available:
-	\url{http://www.apropos.fi/1-2005/prima.php.}
-
-  \bibitem{Ribeiro} Ribeiro, C.\ B., Ollila, E. and Koivunen, V., ``Stochastic 
-	Maximum-Likelihood Method for MIMO Propagation Parameter Estimation,'' 
-	\textit{IEEE Transactions on Signal Processing}, vol.~55, no.~1, pp. 46--55.
-	[Online]. Accessed 19.1.2007. Also available in print.
-	DOI: 10.1109/TSP.2006.882057.
-
-  \bibitem{sfs} SFS 5342, \textit{Kirjallisuusviitteiden laatiminen}, 2nd 
-	edition, Helsinki, Suomen standardisoimisliitto, 2004. 20~p.
-
-  \bibitem{Sihvola} Sihvola, A. et al., ``Interpretation of measurements of 
-	helix and bihelix superchiral structures,'' in: Jacob, A.\ F. and Reinert, 
-	J. (Eds.) \textit{Bianisotropics '98 7th International Conference on Complex
-	Media}, Braunschweig, 3.--6.6.1998, Braunscweig, Technische Universität 
-	Braunschweig, 1998, pp.\ 317--320.
-
-  \bibitem{Stieber} Stieber, T., ``GnuPG Hacks,'' \textit{Linux Journal.} Online
-	publication, 2006, November, no.~143. Accessed 19.1.2007. Also available in 
-	print. Available: \url{http://www.linuxjournal.com/article/8732.}
-
-\end{thebibliography}
-
-%% Appendices
-%% If you don't have appendices, your thesis ends here. Remove \clearpage,
-%% \thesisappendix and the following text below. The last command of this file
-%% is \end{document}.
-\clearpage
+\bibliography{bibexample} % just insert the bib file name, without .bib, it has to be in the same folder as the .tex file, 
+%%%%%%%%%%%%%% separate the bib files with a comma inside the parenthesis
+\bibliographystyle{alpha}
 
 \thesisappendix
-
-\section{Contents of an appendix}
-\label{app:contents}
-
-Appendices are not essential in a thesis, and so you must plan the content of 
-your thesis as if it does not contain an appendix. The appendix cannot be used 
-as a dumping ground for text and ideas from an overgrown thesis.
-
-An appendix is an independent entity, even though it complements the thesis. 
-So, the appendix is not, say, just a list or image or table, but contains 
-explanatory text as well that indicates the purpose of its content. It can 
-contain code listings, like the one below for a simplified list of commands to 
-create an appendix.
+\section{Thesis repository}
+The whole repository can be found in GitHub: \href{https://github.com/balintpragai/elte_aalto_thesis}{Repository}
+\section{Data generator script}\label{code:datagen}
 \begin{verbatim}
-	\clearpage
-	\appendix
-	\addcontentsline{toc}{section}Contents of an appendix}
-	\thispagestyle{empty}
-	\section*{Contents of an appendix}
-	...
-	text
+import argparse
+import csv
+import random
+from dataclasses import dataclass
+from datetime import datetime, timedelta
+from pathlib import Path
+
+@dataclass
+class Column:
+    name: str
+    column_type: str
+
+@dataclass
+class TableDefinition:
+    name: str
+    columns: list[Column]
+
+
+def fake_city(rng: random.Random) -> str:
+    return rng.choice(
+        [
+            "Helsinki",
+            "Tampere",
+            "Stockholm",
+            "Berlin",
+            "London",
+            "Austin",
+            "Tokyo",
+            "Singapore",
+        ]
+    )
+
+
+def fake_complaint(rng: random.Random) -> str:
+    return rng.choice(
+        [
+            "Headache",
+            "Burning sensation",
+            "Flu-like symptoms",
+            "Skin rash",
+            "Pinkeye",
+        ]
+    )
+
+
+def fake_allergy(rng: random.Random) -> str:
+    return rng.choice(
+        [
+            "None",
+            "Peanuts",
+            "Pollen",
+            "Lactose",
+            "Penicillin",
+            "Dust",
+            "Shellfish",
+            "Latex",
+            "Onions",
+            "Gluten",
+        ]
+    )
+
+
+def infer_value(
+    column_name: str,
+    column_type: str,
+    row_index: int,
+    rng: random.Random,
+) -> str | int:
+    lower_name = column_name.lower()
+    lower_type = column_type.lower()
+
+    if "serial" in lower_type:
+        return row_index + 1
+
+    if "integer" in lower_type or "int" in lower_type:
+        if "age" in lower_name:
+            return rng.randint(16, 85)
+        if "rating" in lower_name:
+            return rng.randint(1, 5)
+        return rng.randint(1, 10_000)
+
+    if "timestamp" in lower_type or "date" in lower_type:
+        base = datetime(2025, 1, 1, 9, 0, 0) + timedelta(hours=row_index * 3)
+        return base.isoformat(sep=" ")
+
+    if "bookingtime" in lower_name:
+        base = datetime(2025, 1, 1, 9, 0, 0) + timedelta(hours=row_index * 2)
+        return base.isoformat(sep=" ")
+    if "full_name" in lower_name:
+        return f"User {row_index + 1}"
+    if "city" in lower_name:
+        return fake_city(rng)
+    if "gender" in lower_name:
+        return rng.choice(["male", "female", "other"])
+    if "email" in lower_name:
+        return f"user{row_index + 1}@example.com"
+    if "phone" in lower_name:
+        return f"+35840{rng.randint(100000, 999999)}"
+    if "complaint" in lower_name:
+        return fake_complaint(rng)
+    if "allergy" in lower_name:
+        return fake_allergy(rng)
+
+    if "text" in lower_type:
+        return f"{column_name}_{row_index + 1}"
+    if "character varying" in lower_type or "varchar" in lower_type:
+        return f"{column_name}_{row_index + 1}"
+
+    return f"value_{row_index + 1}"
+
+
+def write_csv(table: TableDefinition, rows: int, output_dir: Path, seed: int) -> Path:
+    rng = random.Random(f"{seed}:{table.name}")
+    output_path = output_dir / f"{table.name}.csv"
+
+    with output_path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        headers = [column.name for column in table.columns]
+        writer.writerow(headers)
+
+        for i in range(rows):
+            writer.writerow(
+                [
+                    infer_value(column.name, column.column_type, i, rng)
+                    for column in table.columns
+                ]
+            )
+
+    return output_path
+
+
+def main(table_list: list[TableDefinition]) -> None:
+    parser = argparse.ArgumentParser(
+        description="Generate synthetic CSV files for merkle encryption."
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=Path("generated_table_data"),
+        help="Directory where CSV files will be written.",
+    )
+    parser.add_argument(
+        "--rows-per-table",
+        type=int,
+        default=50,
+        help="Number of synthetic rows to generate for each table.",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=42,
+        help="Random seed for repeatable outputs.",
+    )
+    args = parser.parse_args()
+
+    if args.rows_per_table < 1:
+        raise ValueError("--rows-per-table must be at least 1.")
+    
+    if table_list is None or len(table_list) == 0:
+        raise ValueError("No table definitions provided.")
+
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+
+    for table in tables:
+        path = write_csv(table, args.rows_per_table, args.output_dir, args.seed)
+        print(f"Wrote {path}")
+
+
+if __name__ == "__main__":
+    tables = [
+        TableDefinition(
+            name="users",
+            columns=[
+                Column(name="id", column_type="SERIAL PRIMARY KEY"),
+                Column(name="user_full_name", column_type="TEXT"),
+                Column(name="city", column_type="TEXT"),
+                Column(name="gender", column_type="TEXT"),
+                Column(name="age", column_type="INTEGER"),
+                Column(name="email", column_type="TEXT"),
+                Column(name="phone", column_type="TEXT"),
+                Column(name="bookingtime", column_type="TIMESTAMP"),
+                Column(name="complaint", column_type="TEXT"),
+                Column(name="satisfaction_rating", column_type="INTEGER"),
+                Column(name="allergy", column_type="TEXT"),
+            ],
+        )
+    ]
+    main(table_list=tables)
 \end{verbatim}
-
-Equation numbering in the appendix forms a separate, complete entity. Here are a couple of examples how equations in an appendix are numbered:
-\begin{align}
-	(x+a)^n &= \sum_{k=0}^n \binom{a}{b} x^n a^{n-k}, \label{appeq:1}\\
-	\sin\alpha \pm \sin\beta &= 2\sin\left(\frac{\alpha\pm\beta}{2}\right)
-	\sin\left(\frac{\alpha\mp\beta}{2}\right). \label{liitekaava2}
-\end{align}
-
-The appendix can contain figures that do not fit in to complement the text in 
-the thesis. The numbering of figures is like that of equations: see figure~\ref{appfig:refraction}.
-
-%% Example of a figure in the appendix. Note how b places the figure at the
-%% bottom of the page.
-\begin{figure}[b]
-	\centering
-		\includegraphics[height=31mm]{./linediagram.pdf}
-	\caption{Figure and caption to show the numbering in the appendix.}
-	\label{appfig:refraction}
-\end{figure}
-
-The numbering of tables is like that for equations and figures, as is evident 
-from the caption of table~\ref{apptab:schedule}.
-
-%% Example of a table in the appendix. Note how h places the table in the
-%% current position.
-\begin{table}[htb]
-	\centering
-	\caption{Caption for the table.}
-	\label{apptab:schedule}
-	\sffamily% change the font in the table to sans serif
-	\fbox{
-		\begin{tabular}{lp{0.5\linewidth}}
-			9.00--9.55  & Safety instructions on the use of laboratories\\
-			9.55--10.00 & Transfer to the laboratory
-		\end{tabular}}
-\end{table}
-
-
-\clearpage
-\section{Page layout and typographical design}
-\label{app:layout}
-
-\subsection*{Layout choices}
-
-Designing a visually pleasing, balanced and easily readable document requires 
-setting several typographic parameters, one of the most important ones being the
-line length. If too wide, the reader’s eyes have trouble focusing on the text 
-because the line length makes it difficult to gauge when the line begins and 
-where it ends; too narrow, and the reader’s eyes have to travel back too often, 
-breaking their reading rhythm and often causing them to begin the next line 
-before finishing the current one.
-
-Traditional research on the effect of line length on readability of printed text
-have found that 45--75 characters per line (cpl) is an acceptable range, with 
-66\,cpl being the ideal \cite{Bringhurst, Wikilinelength}. This number includes 
-letters, numbers and spaces. The line length in conventional books tends to be 
-30 times the type size, but anything between 20 and 40 times is considered 
-acceptable. For example, for a 10-pt font, an acceptable line length is 300 
-points (30$\times$10), or about 10,58\,cm. The reader’s experience as a reader 
-also affects the preferred line length; an experienced reader can handle between
-45 and 80\,cpl for a comfortable reading experience, whereas a novice prefers a 
-line length of between 34 and 600\,cpl \cite{Unna}.
-
-\begin{figure}[b]
-	\centering
-	\fbox{\parbox{300pt}{\footnotesize Lorem ipsum dolor sit amet, consectetur 
-			adipiscing elit. Pellentesque et urna posuere, aliquam risus et, 
-			ullamcorper quam. Pellentesque sed dignissim metus. Etiam turpis 
-			dui, suscipit sed libero vel, vulputate imperdiet risus. Sed rutrum
-			magna nec neque ornare, at imperdiet sapien porttitor. Sed
-			fringilla, enim nec sollicitudin laoreet, arcu leo convallis nisl, 
-			eget rhoncus ligula libero malesuada justo.}}
-	\caption{Text typeset in a 300-pt-wide box using a font size of 10\,pt. The 
-		resulting average number of characters per line is about 60. The text is
-		framed to make the box size evident.}
-\end{figure}
-
-Reading text from a screen poses challenges absent in paper: glare, flicker and 
-scrolling. Research seems to indicate that longer lines are better for scanning 
-through the text whereas shorter lines are preferred for accurate reading. One 
-study says that reading speed at a certain level of comprehension seems to be 
-better for longer lines (100\,cpl) than for shorter lines (25\,cpl) 
-\cite{Dyson}. Another study \cite{Shaik} indicates that subjective preferences 
-for longer or shorter line lengths appear to be contradictory. About 60\% of 
-the test subjects preferred the presented shortest (35\,cpl) or longest 
-(95\,cpl) lines, and at the same time all of them disliked either the 
-shortest or the longest lines. (See also \cite{Wikilinelength}.)
-
-Another important typographical parameter is line leading or leading, which 
-refers to the distance between adjacent lines of text. Double spacing is a 
-practice from the era of typewriters particularly in academia to allow making 
-handwritten comments in documents. Typewriters had a limited number of options 
-for leading, and double spacing was chosen as a norm. Too much leading can cause
-continuity problems, since the reader’s eyes must travel a greater distance 
-between lines of text. The amount of leading is a compromise between ease of 
-reading, desired efficiency in the use of vertical space, weight and type (serif
-or sans serif) of the typeface used, and visual aesthetics. Naturally, whether a
-document is printed or published online affects the leading, but even the 
-language of the text must be considered when deciding on the required leading. 
-(See also \cite{enwiki:1026690618}.)
-
-\subsection*{Aalto University’s visual guideline for writing documents}
-
-Of Aalto University’s visual guidelines \cite{aaltovisual}, the one that applies
-to document writing is related to the use of fonts. This guideline specifies 
-that the body of the text be in the serif font Sentinel and the sec-tion titles 
-in boldface of the sans serif font Nimbus Sans. These fonts should be available 
-on all Aalto computers. However, being a commercial product, Sentinel can be 
-replaced with Georgia and Nimbus Sans with Arial, both of which come installed 
-in all Windows machines. Thus, Georgia and Arial are the fonts used in the Word 
-template. The font choices for this \LaTeX{} template are a Times and Helvetica 
-clone from the \verb+newtxtext+ package since it provides support for math fonts
-and its output is a PDF/A compliant pdf.
-
-\subsection*{Layout and typographical specifications}
-\subsubsection*{Page layout in the thesis}
-
-The thesis is typeset on A4-sized paper. The text width is set to an average of 
-about 75\,cpl as a compromise between having to read the thesis on a computer 
-screen and on paper, as discussed above. For the font size of 12\,pt to be used 
-in the body text, the text width works out to 14,2\,cm. For the online version 
-of the document, the text column is centred, implying that the left and right 
-margins are both 3,4\,cm. If you want to print the document and bind it, the 
-binding margin must be 4,8\,cm. The text height is set to 23\,cm by setting the 
-top margin to 3,7\,cm and the bottom margin to 3\,cm. The layout dimensions are 
-summarised in table~\ref{tab:layout}.
-
-\begin{table}[htb]
-	\centering
-	\caption{Page layout dimensions.}
-	\label{tab:layout}
-	\sffamily% change the font in the table to sans serif
-	\begin{tabular}{ll}
-		\hline
-		Paper size & A4\\\hline
-		Text width & 14,2\,cm \\\hline
-		Top margin & 3,7\,cm \\\hline
-		Bottom margin & 3,0\,cm \\\hline
-		\textbf{Online document} & \\\hline
-		Left margin & 3,4\,cm \\\hline
-		Right margin & 3,4\,cm \\\hline
-		\textbf{Printed document} & \textbf{(for binding)} \\\hline
-		Left margin & 4,8\,cm \\\hline
-		Right margin & 2,0\,cm \\\hline
-	\end{tabular}
-\end{table}
-
-
-\subsubsection*{Sectioning and text body}
-
-The font for the body text is a 12-pt serif Times clone and a Helvetica bold 
-clone for the section titles. Use at most three levels of hierarchy in your 
-text: section, subsection and subsubsection. The lower section numbering must 
-use the section number of the higher section. For example, section number 2.1.3 
-refers to section 2, subsection 1 and subsubsection 3.
-
-\clearpage
-\section{Reference and in-text citation guidelines}
-\label{app:reference}
-
-With regard to standard practice across academic disciplines, it is important to
-use an in-text citation to indicate when your work borrows or refers to words or
-ideas from a specific source. A full reference of this source should be included
-in your ‘References’ / ‘Bibliography’ / ‘Works Cited’ section as well.
-
-There are two major referencing styles: the Harvard style and the Vancouver 
-style. The former was first introduced in a journal article by Professor of 
-Zoology Edward Marks in 1881 during his tenure at Harvard University (Chernin, 
-1988, 1062). It has since become an umbrella term to refer to styles which 
-utilise author-date (e.g., APA style) or author-page (e.g., MLA style) within 
-parentheses (). It still remains in use to some degree in the natural sciences 
-(e.g., American Chemical Society, 2006) and has become the predominant style 
-within the social sciences (e.g., American Psychological Association, 2010), and
-the arts and humanities (e.g., Modern Languages Association, 2016; University of
-Chicago Press, 2017). In contrast, the latter Vancouver style has become a very 
-common style within the fields of engineering, technology and science. The name 
-is derived from the inaugural meeting in Vancouver, Canada in 1978 of a 
-committee later referred to as the International Committee of Medical Journal 
-Editors (ICMJE) (BMA, 2012). The style is typified by its use of numbers for 
-in-text citations; as such, it is also known as the author-number system. One of
-the most common versions of the Vancouver Style is the IEEE Reference Guide \\
-(IEEE 2018). The numbers used for in-text citations correspond to a numbered 
-reference list at the end of the text. Typically, the numbers refer to the order
-in which the referenced authors first appear in the text. Thereafter, they 
-continue to be referred to by this number. A lesser utilised variation of this 
-style can feature the numbers corresponding to an alphabetical list of authors.
-
-There is a third system of notes and bibliography. This is one of the two styles
-in the Chicago Manual of Style; the other is an author-date style. Notes and 
-bibliography is mostly used by the fields of literature and history. It is 
-occasionally utilised in the field of arts, but it is considerably less common 
-than the Harvard style. Among the 97 English doctoral dissertations available 
-online in AaltoDoc as of 5 March 2020, only 14 utilised this method. As it is 
-relatively rare within Aalto University, it is recommended to visit the Chicago 
-Manual of Style online for the reference style guide for it.
-
-The two key considerations in adopting a particular style are that you agree 
-with your supervisor on the particular style at the start of your thesis writing
-process and that you remain consistent in the use of the style throughout your 
-thesis. Your supervisor can provide recommendations for you on the common style 
-guides generally used in your field.
-
-Below, you will find general guidelines to these two major styles with reference
-to the specific style guides in use. Corresponding examples are provided in the 
-boxes below. Please note that the use of boxes here is only to visually separate
-the examples for clarity’s sake and that boxes should not be used when quoting 
-or paraphrasing in your own thesis.
-
-
-\subsection*{Direct quotes}
-
-If you are using the exact wording from a source, you should place this in 
-double quotation marks (“ ”) followed by the author, date, and page number in 
-parentheses (if using the Harvard style) or a number in square brackets [if 
-using the Vancouver style]. The citation should be on the same line and inside 
-the punctuation. This citation should correspond to a full reference in the 
-References / Bibliography / Works Cited section of your thesis. The punctuation 
-used between the author, date, and page number may vary depending on which style
-guide you are using (compare, for example, The Chicago Manual of Style 
-(University of Chicago Press, 2017), The Publication Manual of the American 
-Psychological Association (APA, 2018), The MLA Handbook (MLA, 2016) and The New 
-Oxford Style Manual (OUP, 2016)). However, it should be noted that the frequency
-of direct quote usage varies significantly between academic fields. While it is 
-a fairly common practice to utilise quotes within art, design, architecture and 
-business, it is rare in the science and engineering fields. Therefore, it is 
-recommended that you ask your supervisor or check well-known journals in your 
-field to gauge the frequency of quoting preferred by experts in your field.
-
-
-\subsubsection*{Quoting in Harvard style}
-
-\newcounter{example}[section]
-\refstepcounter{example}
-\textsf{\textbf{Example~\theexample:}} Quote, information-prominent, American 
-Sociological Association (2019) style
-
-\vspace{1ex}
-\noindent
-\fbox{\parbox{\textwidth-2\fboxsep}{\textsf{
-	Attending to these breakdowns not only result in an on-going re-constitution
-	of relations between people and things but are also hotbeds for unleashing 
-	everyday “creativity, invention, imagination, and artfulness” (Jackson, 
-	2014: 226).
-	}}}
-
-\vspace{1ex}
-\noindent
-\textit{Source:} Durrani, M. 2018. Designers by any other name: exploring the 
-sociomaterial practices of vernacular garment menders. \textit{Design Research 
-Society International Conference: Catalyst. DRS International Conference 
-Series.} 4: 1731-1746. ISBN 978-1-912294-19-0 (electronic). 
-DOI: 10.21606/dma.2018.495. \copyright{} 2018 Design Research Society. This work
-is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 
-International License. \url{https://creativecommons.org/licenses/by-nc-sa/4.0/.}
-
-\vspace{1em}
-\noindent
-\refstepcounter{example}
-\textsf{\textbf{Example~\theexample:}} Quote, author-prominent, American 
-Psychological Association (2010) style
-
-\vspace{1ex}
-\noindent
-\fbox{\parbox{\textwidth-2\fboxsep}{\textsf{
-	Philosopher Mark Johnson (2007) argued that meanings emerge from “deeper 
-	explorations into the qualities, feelings, emotions, and bodily processes” 
-	(p. x).
-}}}
-
-\vspace{1ex}
-\noindent
-\textit{Source:} Aktaş, B. \& Mäkelä, M. (2019). Negotiation between the maker 
-and material: Observations on material interactions in felting studio. 
-\textit{International Journal of Design}, 13(2): 55--67. \copyright{} 
-\textit{2019 Aktaş \& Mäkelä. Copyright for this article is retained by the 
-	authors, with first publication rights granted to the International Journal 
-	of Design. All journal content, except where otherwise noted, is licensed 
-	under a Creative Commons Attribution-NonCommercial-NoDerivs 2.5 License.}
-
-
-\subsubsection*{Block quoting}
-
-Block quotes are used for longer quotes. Note the line indentation on each line 
-of the block quote below, starting from “There was \ldots”, and the absence of 
-quotation marks. Each style guide recommends its own minimum text length before 
-using block quoting. [Compare: AMA - four lines of text or more; APA - 40 words 
-or more; or Chicago - 100 words or more.]
-
-\vspace{1em}
-\noindent
-\refstepcounter{example}
-\textsf{\textbf{Example~\theexample:}} Block quote, Harvard style, as 
-recommended by journal
-
-\vspace{1ex}
-{\centering
-\fbox{\parbox{\textwidth-2\fboxsep}{\textsf{
-	When the Center for Bits and Atoms won the National Science Foundation Grant
-	in 2003, MIT engineers began to look for local communities around the world 
-	they could help via digital fabrication: “Instead of bringing information 
-	technology to the masses, the fab labs bring information technology 
-	development to the masses,” explained Gershenfeld, in the official press 
-	release (NSF 2004). Karlsen had a more colourful version:\\[1em]
-	\mbox{}\hfill\parbox{125mm}{There was an innovation competition launched by 
-		MIT globally to develop local projects. MIT sent some of its best 
-		teachers to Norway to find a suitable cooperation project. They found us
-		through Telenor, who told them: ‘There is this crazy guy lost in the 
-		fjord who devised sensors for his animals.’ We enjoyed a great year of 
-		cooperation with MIT in 2001 and we were invited to Boston to present 
-		and develop this project.}
-}}}
-}
-
-\vspace{1ex}
-\noindent
-\textit{Source:} Kohtala, C \& Bosqu\'e, C. (2014). The Story of MIT-Fablab 
-Norway: Community Embedding of Peer Production. Journal of Peer Production, 
-5 (8): 1--8. ISSN 2213-5316 (electronic). \copyright{} 2014 public domain.  \url{http://peerproduction.net/issues/issue-5-shared-machine-shops/peer-reviewed-articles/the-story-of-mit-fablab-norway-community-embedding-of-peer-production/}
-
-
-\subsection*{Paraphrasing}
-
-Paraphrasing is a more prevalent citation practice in many academic fields. In 
-engineering and science, paraphrasing tends to dominate with quotations used 
-only sparingly. In other fields, such as art and design, the ratio of quoting to
-paraphrasing varies significantly. Again, it is best to ask your supervisor or 
-review journals from your field to see how common the practice is amongst your 
-academic peers.
-
-The intent behind paraphrasing is that you write the ideas or arguments of a 
-source in your own words. This citation practice can allow for better 
-integration of ideas, argumentation, and flow within the text. A good rule of 
-thumb for paraphrasing is to have more than 80\% of the paraphrased text in your
-own words. If you only change a few words from the original, you can run the 
-risk of plagiarism, even if you cite the source. Words matter. If you use the 
-exact combination of words from another author, these must be in quotes.
-
-
-\subsubsection*{Paraphrasing in Harvard style}
-
-\refstepcounter{example}
-\textsf{\textbf{Example~\theexample:}} Paraphrase, author prominent, Chicago 
-Manual of Style (2017) style
-
-\vspace{1ex}
-\noindent
-\fbox{\parbox{\textwidth-2\fboxsep}{\textsf{von Hippel (1986) suggested a 
-			four-step process for working with lead users: first identifying 
-			important trends and key customer needs, then identifying lead users
-			and understanding their needs and possible solutions and finally 
-			working with lead users in order to improve or generate 
-			product/service concepts.
-}}}
-
-\vspace{1ex}
-\noindent
-\textit{Source:} Hyysalo, S., Kohtala, C., Helminen, P., Mäkinen, S., Miettinen,
-V., \& Muurinen, L. (2014). Collaborative futuring with and by makers. 
-\textit{CoDesign}, 10(3--4), 209--228. DOI: 10.1080/15710882.2014.983937. 
-\copyright{}
-\textit{2014 The Authors. This is an Open Access article. Non-commercial reuse, 
-	distribution, and reproduction in any medium, provided the original work is 
-	properly attributed, cited, and is not altered, transformed, or built upon 
-	in any way, is permitted.}
-
-\vspace{1em}
-\noindent
-\refstepcounter{example}
-\textsf{\textbf{Example~\theexample:}} Paraphrase, information-prominent, 
-Harvard style as recommended by journal
-
-\vspace{1ex}
-\noindent
-\fbox{\parbox{\textwidth-2\fboxsep}{\textsf{
-Obviously digital technologies will not destroy comics as we know them, but they
-may change their underlying decorum. In reality, these changes have continuously
-shaped the lives of the industry’s amateurs and semi-professionals, who have to 
-organize their time around a bricolage of fragmented schedules and poorly paid 
-work (Woo 2015): from daily feeding a Patreon account while filling a scanlation 
-request, to selling a print in Deviantart while reviewing the latest Doujinshi 
-on a not-so-free-of-ads-blog are some of the patchwork tasks of the comics 
-networked precariat in the age of semio-capitalism.
-}}}
-
-\vspace{1ex}
-\noindent
-\textit{Source:} Manouach, I. (2019). Peanuts minus Schulz: Distributed Labor as
-a Compositional Practice. The Comics Grid: Journal of comics scholarship, 9(16), 
-1–-21. \url{https://doi.org/10.16995/cg.139} \copyright{}
-\textit{2019 The Author(s). This is an open-access article distributed under the
-	terms of the Creative Commons Attribution 4.0 International License (CC-BY 
-	4.0), which permits unrestricted use, distribution, and reproduction in any 
-	medium, provided the original author and source are credited. See}
- \url{http://creativecommons.org/licenses/by/4.0/.}
-
-
-\subsubsection*{Paraphrasing in Vancouver style}
-
-\refstepcounter{example}
-\textsf{\textbf{Example~\theexample:}} Paraphrase, information prominent, IEEE 
-(2018) style
-
-\vspace{1ex}
-\noindent
-%\fbox{\parbox{\textwidth-2\fboxsep}{\textsf{
-%% This is a trick to manually split the example over two pages.
-\textsf{\begin{longtable}{|p{\textwidth-4\fboxsep}|}
-\hline
-When a laser beam is scattered by a dielectric microparticle, resulting in light
-refraction on entering and leaving the particle, a small amount of momentum is 
-transferred from the photons to the matter. This change in momentum, known as 
-the gradient force, results in the attraction of the particle to the high 
-intensity part of the beam (usually the centre). Optical trapping of microscale 
-particles via this mechanism was first reported in the 1970s [1] and duly led to
-the initial observation of a single beam optical trap in 1986 [2]. These 
-preliminary experiments, and many of the methodologies that developed from them,
-utilized the gradient force\\ % spilt line manually by observation
-exerted by a single, tightly focused Gaussian laser 
-beam to trap particles in solution through what has become known as the “optical
-tweezer” effect. Since these initial findings, optical technology has evolved 
-significantly, and traps that facilitate three dimensional manipulation of 
-particles are now readily available. While originally limited to the controlled 
-manipulation of individual particles, multitrap setups involving either 
-splitting [3,4] or time sharing [5,6] with a single laser beam are now also 
-commonly utilized. As a more advanced form of the former, holographic optical 
-tweezers that employ diffractive optical elements such as spatial light 
-modulators now allow computer controlled, independent manipulation of multiple 
-particles [7--9]. A number of multitrap devices have also been developed based 
-on the application of laser beams with more complex phase and intensity 
-profiles, as for example Bessel or higher order Laguerre Gaussian beams 
-[10--12].\\
-\hline
-\end{longtable}
-}
-%}}}
-
-\vspace{1ex}
-\noindent
-\textit{Source:} “Chirality in Optical Trapping and Optical Binding” by David S.
-Bradshaw, Kayn A. Forbes, Jamie M. Leeder, and David L. Andrews in 
-\textit{Photonics} 2015, available under a Creative Commons Attribution License 
-(\url{https://creativecommons.org/licenses/by/4.0/}) at 
-\url{https://doi.org/10.3390/photonics2020483}.
-
-\vspace{1ex}
-If you would like to emphasise the inventor, you could rephrase the first 
-in-text citation as “was first reported by Ashkin in 1970 [1]” or “was first 
-reported by Ashkin [1]” if the year is less important. (Ashkin is the sole 
-author of the paper. It was published in 1970.)
-
-
-\subsubsection*{Tips for paraphrasing}
-
-\begin{enumerate}
-	\item Identify the important points from the source text. Then, try to 
-	identify the relationship between these different parts. Is the relationship
-	sequential, causal, contrasting, or conditional? Can these be replaced by 
-	synonyms? For example, the contrasting conjunction, but, can be replaced by 
-	however, although, nevertheless, yet or on the other hand. In many cases, 
-	these synonyms may require that you change the structure of the sentence, 
-	which in turn may help you to formulate the ideas in your own words.
-	\item Synonyms - A word such as give can be replaced with provide, supply or
-	contribute. Refer to a thesaurus for more examples. You can find these 
-	online or at the Learning Centre. If you are unsure of how a new word might 
-	be used, check a dictionary or search the word in Google Scholar for 
-	examples of its use in context.
-	\item Common phrases - There are often multiple ways of expressing a given 
-	phrase in academic writing. For example, compare “Previous studies have not 
-	dealt with\ldots” with “Researchers have not treated X in much detail” or 
-	“Most studies in the field of X have only focused on\ldots” These examples 
-	were drawn from the University of Manchester’s (2018) Academic Phrasebank  (\url{http://www.phrasebank.manchester.ac.uk/}). This corpus of common 
-	phrases includes hundreds of examples, categorised according to their 
-	functions.
-	\item Additions or deletions - Can you add a missing item? Can you leave 
-	something out?
-	\item Change the structure of the sentence - There are many ways to change 
-	the structure. Can you change the sentence from passive voice to active 
-	voice, or vice versa? Can you rewrite the sentence with “It is” or “There 
-	is”? Can you switch to the inanimate agent, e.g. “This thesis discovered”? 
-	Refer to the Aalto University Language Centre site 
-	(\url{http://sana.aalto.fi/awe/}) in the “Cohesion” section for more ways to
-	change the structure of a sentence.
-\end{enumerate}
-
-\vspace{1em}
-\noindent
-\refstepcounter{example}
-\textsf{\textbf{Example~\theexample:}} Before and After Paraphrase
-
-\vspace{1ex}
-\noindent
-\fbox{\parbox{\textwidth-2\fboxsep}{\textsf{
-\textbf{Before Paraphrase}\\
-“Significant progress has been made in the use of smart textiles in wearable 
-technology, especially in the sport and well-being sector. However, the medical 
-sector still lacks commercial and viable solutions” (Ilen et al., 2019, 
-p.~2).\\[1em]
-%
-\textbf{After Paraphrase}\\
-While some industries have taken advantage of smart textiles in wearable  
-technology, Ilen et al. (2019, p. 2) contend that the medical industry has yet 
-to produce any viable products.
-}}}
-
-\vspace{1ex}
-\noindent
-\textit{Source:} Ilen, E., Groth, G., Ahola, M., \& Niinimäki, K. (2019). 
-\textit{Empathy in a Technology Driven Design Process: Designing for Users 
-	without a Voice of their Own.} Paper presented at 8th biannual Nordic Design
-	Research Conference: Nordes 2019: Who Cares?, Espoo, Finland. Open Access 
-	paper.
-
-
-\subsubsection*{Avoiding the pitfalls of the Finnish paragraph-length paraphrase
-	 (FPP)}
-
-In Finland, there exists a method of citation that is not permitted or 
-recognised by many international style guides, including IEEE Reference Guide 
-(IEEE 2018); Information and documentation --- Guidelines for bibliographic 
-references and citations to information resources (ISO 690:2010(E)) (ISO 2010); 
-New Oxford Style Manual (OUP 2012); Scientific Style and Format: The CSE Manual 
-for Authors, Editors, and Publishers (CSE 2012); The Chicago Manual of Style 
-(University of Chicago Press 2017); The Publication Manual of the APA (APA 
-2018). Due to this and the reasons discussed below, it is not recommended that 
-this method be used when writing in English. Interestingly, the Finnish 
-Standards Association (Suomen Standardisoimisliitto SFS ry) which emulates the 
-ISO standard, does not recognise this either (FSA 2010). In the Finnish style of
-citation, writers can write an entire paragraph where every sentence comes from 
-a single source. Then, at the bottom of the paragraph, they provide a citation 
-in brackets outside the final punctuation (see example below). Generally, the 
-Finnish method suggests that by putting the citation after the period, the 
-citation then refers to all the sentences preceding it in the paragraph.
-
-\newpage %% Manually adjust palcement of the example
-%\vspace{1em}
-\noindent
-\refstepcounter{example}
-\textsf{\textbf{Example~\theexample:}} \label{ex:Finn}Paraphrase, Finnish style,
-not recommended in English
-
-\vspace{1ex}
-\noindent
-\fbox{\parbox{\textwidth-2\fboxsep}{\textsf{
-Additive manufacturing was originally developed to guide product design by 
-providing a way to create prototypes directly from digital designs. This method 
-called rapid prototyping (RP), as the name implies, consumes less time and 
-resources than most preceding techniques. For instance, the manufacturing of an 
-injection mold for prototyping purposes would be extremely expensive. However, 
-the part can be created with additive manufacturing for a fraction of the cost. 
-Moreover, rapid prototyping is cost and time effective when it can substitute 
-handcrafting, CNC manufacturing, or silicon molding. The downside when compared 
-to these methods is often poor surface quality and inferior dimensional 
-accuracy. However, RP enables fast iterative testing of products with a low 
-threshold of prototypes failing expectations. This makes it a superior tool in 
-product development and explains why prototyping has been the leading 
-application of AM. (Wohlers 2013)
-}}}
-
-\vspace{1ex}
-\noindent
-\textit{Source:} Anonymous. (2015). Bachelor Thesis. Adapted from Anonymous, 
-Bachelor thesis, School of Engineering, Aalto University, Espoo Finland, 2015. 
-This work is licensed under an Attribution-NonCommercialNoDerivatives 4.0 
-International license.
-
-\vspace{1em}
-This style has several inherent problems. To begin with, it significantly limits
-the writer from utilising what the noted academic writing scholar Ken Hyland 
-(2005) has called stance and engagement within the actual paragraph. This is 
-where the writer adds their own authorial voice to the text by interacting with 
-the source material and with the readership in order to situate themselves in 
-their community of academic peers. This interaction is achieved in the context 
-of stance and engagement by the use of attitudinal markers, boosting, hedging, 
-self-mentioning, directives, personal asides, questions, reader pronouns, and 
-shared knowledge (Hyland 2005, 177). Within this long form Finnish paraphrase, 
-the stance and engagement can logically be attributed only to the original cited
-source, not the current writer summarising the ideas of the source, for there is
-no meaningful way to discern ownership of ideas beyond the citation attribution.
-In example~\ref{ex:Finn} above, it is possible to identify at least 10 separate 
-statements made in the paragraph. Some of these are representative of stance, 
-including claims (e.g., ‘The downside when compared to these methods is\ldots’ 
-and ‘This makes it a superior tool\ldots and explains why prototyping has been 
-the leading application in AM’) and logical connections (‘Moreover’, and 
-‘However’). Moreover, there are clear attempts at engagement with asides (e.g., 
-‘as the names implies’) and creating interpersonal solidarity with experts in 
-the field through boosting (e.g., ‘extremely’ and ‘superior’). While some of 
-these may have been the thesis writer’s own arguments, it would, for the reader,
-appear that these have all been paraphrased from the source (Wohlers 2013). From
-a larger perspective, this Finnish paraphrase style tends to promote a less 
-critical style of writing where writers tend to summarise the work of others and
-avoid critically discussing individual ideas from sources as they are 
-introduced.
-
-Similarly, this Finnish paraphrase style can lead fledgling writers quite easily
-into practices that constitute plagiarism. For instance, when students write 
-their bachelor’s thesis, it can often take the form of a literature review. When 
-the perceived goal is to summarise others’ ideas, it can readily lead to an 
-overuse of this FPP style. According to the Chicago Manual of Style, this could 
-constitute plagiarism: ‘(u)se that is not fair will not be excused by 
-paraphrasing. Traditional copyright doctrine treats extensive paraphrase as 
-merely disguised copying’ (University of Chicago Press 2017, 212). It is similar
-to the problem of overuse of block quotes in the arts, humanities, and social 
-sciences.
-
-Worse yet, the logic of the FPP style has led some students to the practice of 
-summarising two or more sources into a single paragraph with the citations 
-provided only at the end of the paragraph. This would certainly constitute 
-plagiarism as there is no meaningful way for the reader to discern which idea or
-argument belongs to which author. Unfortunately, this logical leap does not 
-appear to be a rare occurrence. In a recent survey of 41 theses written in 
-English at Aalto University between 2008 and 2018, 85\% (35 samples) used the 
-FPP style, while the multiple citation problem occurred in 41\% (17 samples) 
-(Forget and Paloposki 2019).
-
-While it is generally better to introduce a citation and immediately 
-contextualise it (i.e., integrate it into your argumentation; explain its 
-significance; agree/disagree with it; or contrast it), it is possible to 
-continue discussing a single source without using the same citation at the end 
-of every sentence. For instance, the Publication Manual of the APA (APA 2018) 
-recommends maintaining a clear progression of the topic at the start of the next
-sentence.
-
-\vspace{1em}
-\noindent
-\refstepcounter{example}
-\textsf{\textbf{Example~\theexample:}} \label{ex:apa}APA-recommended method of 
-paraphrasing same source across consecutive sentences 
-
-\vspace{1ex}
-\noindent
-\fbox{\parbox{\textwidth-2\fboxsep}{\textsf{
-Chen and Liu (2004) studied the effect of aggregate size distributions and the 
-volume fraction of aggregate on the fracture parameters of concretes with 
-strength 50--89 MPa under three-point bending test. For this purpose three 
-various maximum aggregate sizes of 10, 15 and 20 mm were employed.
-}}}
-
-\vspace{1ex}
-\noindent
-\textit{Source:} Rashad, A. and Seleem, H. (2014). A Study of High Strength 
-Concrete with Moderate Cement Content Incorporating Limestone Powder. 
-\textit{Building Re-search Journal}, 61(1): 43--58. 
-DOI \url{https://doi.org/10.2478/brj-2014-0004}. 
-This work is licensed under a Creative Commons 
-Attribution-NonCommercial-NoDerivatives 3.0 International license.
-
-\vspace{1em}
-In example \ref{ex:apa}, it is clear the Rashad and Seleem are still referring 
-to Chen and Liu’s article in the second sentence by starting with ‘For this 
-purpose\ldots aggregate sizes\ldots’ Although one would suffice, both noun 
-phrases are clearly connected by topical progression to the narrative of the 
-first sentence.
-
-
-\subsection*{References}
-\subsubsection*{References in the Harvard Style}
-
-The reference list below contains examples of a scholarly article, book, chapter
-in a book with editors, conference publication, doctoral dissertation, 
-interview, master’s thesis, motion picture, painting, photograph, standard and 
-webpage. These have been formatted in the American Psychological Association 
-(APA) style, one variation of the Harvard Style. Please note that the APA 
-recommends including the digital object identifier (DOI) for sources found 
-online. When the DOI is missing, they recommend including the home page URL. 
-Although the APA guidelines do not require a date of retrieval, it is good 
-practice to note the date retrieved as online sources can change over time.
-
-\vspace{1ex}
-\noindent
-American Medical Association. (2007). 
-\textit{AMA Manual of Style: A Guide for Authors and Editors} 
-(10th ed.). New York, USA: Oxford University Press.
-
-\vspace{1ex}
-\noindent
-American Psychological Association. (2018). 
-\textit{Publication Manual of the American Psychological Association} 
-(6th ed.). Washington, USA: American Psychological Association.
-
-\vspace{1ex}
-\noindent
-American Sociological Association. (2019). 
-\textit{American Sociological Association Style Guide} 
-(6th ed.). Washington, USA: American Sociological Association.
-
-\vspace{1ex}
-\noindent
-British Medical Association. (2012). 
-Reference Styles [Webpage]. Updated 28 February 2019. 
-Retrieved 01 March 2020 from 
-\url{https://www.bma.org.uk/library/library-guide/reference-styles}
-
-\vspace{1ex}
-\noindent
-Bruce, E. \& Hamp-Lyons, L. (2013). 
-Looking for the academic voice: Assessing undergraduate writing. 
-In J. Wrigglesworth (Ed.), 
-\textit{EAP within the higher education garden: Cross-pollination between 
-	disciplines, departments and research}. 
-Proceedings of the BALEAP Conference, Portsmouth, UK, 2011. Reading, UK: Garnet
-Education.
-
-\vspace{1ex}
-\noindent
-Chernin, E. (1988). 
-The “Harvard System”: a mystery dispelled, \textit{BMJ}, 297(6655): 1062--1063.
-
-\vspace{1ex}
-\noindent
-Council of Science Editors. (2012). 
-\textit{Scientific Style and Format: The CSE Manual for Authors, Editors, and
-	Publishers}. 
-Chicago, USA: University of Chicago Press.
-
-\vspace{1ex}
-\noindent
-Finnish Standards Association. (2010). SFS 5989, Guidelines for bibliographic 
-references and citations to information sources. Helsinki, Finland: Finnish 
-Standards Association.
-
-\vspace{1ex}
-\noindent
-Forget, M. and Paloposki, T. (2019). 
-\textit{When academic writing cultures collide: Plagiarism requirements in the 
-	English Thesis Seminar at Aalto University}. 
-Paper presented at 3rd International Seminar English as a Medium of Instruction 
-(EMI): embracing pluricultural education, Valencia, Spain.
-
-\vspace{1ex}
-\noindent
-Halliday, M. (2013). \textit{Halliday’s Introduction to Functional Grammar} 
-(4th ed.). London, UK: Routledge.
-
-\vspace{1ex}
-\noindent
-Heo, M. and Lee, M. (Producers), \& Joon-Ho, B. (Director). (2019). 
-\textit{Parasite} [Motion Picture]. South Korea: CJ Entertainment.
-
-\vspace{1ex}
-\noindent
-Hyland, K. (2005). 
-Stance and engagement: a model of interaction in academic discourse, 
-\textit{Discourse Studies}, 7(2), 173--192. 
-\url{doi.org/10.1177/1461445605050365}
-
-\vspace{1ex}
-\noindent
-Ilen, E., Groth, G., Ahola, M., \& Niinimäki, K. (2019). 
-\textit{Empathy in a Technology Driven Design Process: Designing for Users 
-	without a Voice of their Own}. 
-Paper presented at 8th biannual Nordic Design Research Conference: Nordes 2019: 
-Who Cares?, Espoo, Finland.
-
-\vspace{1ex}
-\noindent
-International Organization for Standardization. (2010). 
-\textit{Information and documentation -- Guidelines for bibliographic references
-	and citations to information resources} 
-(ISO 690:2010(E)) (3rd ed.). Retrieved 01 March 2020 from 
-\url{https://www.iso.org/standard/43320.html}
-
-\vspace{1ex}
-\noindent
-Lu, Y. (2018). 
-\textit{Experience goals in designing professional tools: evoking meaningful 
-	experiences at work} 
-(Doctoral Dissertation, Aalto University, Espoo, Finland). 
-Retrieved 1 March 2020 from 
-\url{https://aaltodoc.aalto.fi/handle/123456789/34084} 
-Modern Language Association. (2016). MLA Handbook. New York, USA: Modern 
-Language Association.
-
-\vspace{1ex}
-\noindent
-Nixon, R. (1977, May 4). Interview by D. Frost (Video recording). 
-David Paradine Productions Ltd., Hertfordshire, U.K.
-
-\vspace{1ex}
-\noindent
-Oxford University Press. (2012). 
-\textit{New Oxford Style Manual}. Oxford, UK: Oxford University Press.
-
-\vspace{1ex}
-\noindent
-Patrias, K. (2007). 
-\textit{Citing medicine: the NLM style guide for authors, editors, and 
-	publishers} 
-(2nd ed.). Bethesda, USA: National Library of Medicine (US). 
-Retrieved 1 March 2020 from: \url{http://www.nlm.nih.gov/citingmedicine}
-
-\vspace{1ex}
-\noindent
-Sutherland-Smith, W. (2019). Is student plagiarism still a serious problem in 
-universities today? In D. Pecorari \& P. Shaw (Eds.), 
-\textit{Student Plagiarism in Higher Education} (pp. 47--61). 
-Oxford, UK: Routledge.
-
-\vspace{1ex}
-\noindent
-Tutal, E. (2015). 
-\textit{Participatory design of visual product identity concepts} 
-(Master’s thesis, Aalto University, Espoo, Finland). 
-Retrieved 1 March 2020 from \url{https://aaltodoc.aalto.fi/}
-
-\vspace{1ex}
-\noindent
-Unknown. (1904). \textit{Alexander Graham Bell} [Photograph]. 
-Library of Congress Prints and Photographs Division, Washington, U.S.A.
-
-\vspace{1ex}
-\noindent
-University of Chicago Press. (2017). \textit{The Chicago Manual of Style} 
-(17th ed.). Chicago, USA: University of Chicago Press.
-
-\vspace{1ex}
-\noindent
-University of Manchester. (2018). Academic Phrasebank [Webpage]. 
-Retrieved 1 March 2020 from \url{http://www.phrasebank.manchester.ac.uk/}
-
-\vspace{1ex}
-\noindent
-Van Gogh, V. (1889). \textit{Sunflowers} [Oil on canvas]. 
-Van Gogh Museum, Vincent Van Gogh Foundation, Amsterdam, The Netherlands.
-
-
-\subsubsection*{References in the Vancouver (IEEE) style}
-
-The reference list below contains examples of scholarly articles [1, 2], a book 
-[3], a chapter in a book with editors [4], a conference publication [5], a 
-master’s thesis [6], a doctoral dissertation [7], a standard [8] and a webpage 
-[9]. Note that the IEEE style allows DOIs, but does not require them. For online
-references, you should specify the ‘accessed date’ if it is a webpage that might
-change. Scholarly articles and theses should not change, and thus the access 
-date is not important for such references. Today, some periodicals use article 
-numbers [2] instead of ordinary page numbers [1]. Please see [10] for more 
-details.
-
-Referring to interviews or works of art seems very uncommon using the IEEE style
-and the guide [10] does not mention such references at all.
-
-\begin{itemize}
-\item[{[1]}] J. B. Pendry, “Negative refraction makes a perfect lens,” 
-\textit{Phys. Rev. Lett.}, vol. 85, no. 18, pp. 3966--3969, Oct. 2000, 
-doi: 10.1103/PhysRevLett.85.3966.
-\item[{[2]}] J. Chen, S. Cheng, H. Xie, L. Wang, and T. Xiang, 
-“Equivalence of restricted Boltzmann machines and tensor network states,” 
-\textit{Phys. Rev. B}, vol. 97, no. 8, 2018, Art. no. 085104, 
-doi: 10.1103/PhysRevB.97.085104.
-\item[{[3]}] C. F. Bohren and D. R. Huffman, 
-\textit{Absorption and Scattering of Light by Small Particles}, 
-Weinheim, Germany: Wiley-VCH, 2004.
-\item[{[4]}] V. Yannopapas, A. G. Vanakaras, and D. J. Photinos, 
-“Electrodynamic theory of three-dimensional metamaterials of hierarchically 
-organized nanoparticles,” 
-in \textit{Amorphous Nanophotonics}, C. Rockstuhl and T. Scharf, Eds., 
-Berlin Heidelberg, Germany: Springer, 2013, pp. 119--141.
-\item[{[5]}] T. Joachims, “Optimizing search engines using clickthrough data,” 
-in \textit{Proc. 8th ACM SIGKDD Int. Conf. Knowledge Discovery and Data Mining}, 
-Edmonton, Canada, Jul. 23--26, 2002, pp. 133--142.
-\item[{[6]}] J. Martela, “Lifecycle of Mobile Phones,” M.Sc. thesis, 
-Dept. Materials Science and Engineering, Aalto University, Espoo, Finland, 2019. 
-[Online]. Available: \url{http://urn.fi/URN:NBN:fi:aalto-201908254898} 
-\item[{[7]}] R.J. Garbacz, 
-“A generalized expansion for radiated and scattered fields,” Ph.D. dissertation, 
-ElectroScience Lab., Ohio State Univ., USA, 1968. [Online]. Available: 
-\url{http://rave.ohiolink.edu/etdc/view?acc_num=osu1302723653}
-\item[{[8]}] \textit{Simple Mail Transfer Protocol}, RFC 5321, J. Klensin, 
-Oct. 2008, [Online]. Available: \url{https://tools.ietf.org/html/rfc5321}
-\item[{[9]}] B. Casselman, “Jacob Bernoulli's zoo,” AMS feature column, 
-\url{http://www.ams.org/publicoutreach/feature-column/fc-2018-02} 
-(accessed Feb. 6, 2018).
-\item[{[10]}] IEEE, “IEEE Reference Guide,” 2018. [Online]. Available: 
-\url{https://ieeeauthorcenter.ieee.org/wp-content/uploads/IEEE-Reference-Guide.pdf}
-\end{itemize}
+\section{FixmeTree class definition}\label{code:FixmeTree}
+\begin{verbatim}
+from pymerkle import BaseMerkleTree
+
+class FixmeTree(BaseMerkleTree):
+
+    def __init__(self, algorithm='sha256'):
+        """
+        Storage setup and superclass initialization
+        """
+        self.hashes = []
+
+        super().__init__(algorithm)
+
+    @staticmethod
+    def preprocess_entry(data):
+        """
+        Preprocesses data entry before encoding
+        e.g. {age: 25, city: "Helsinki"} ->
+        b'{"age_range": 18-25, "geopolygon": "FI-Uusimaa"}'
+        """
+        if isinstance(data, pd.Series):
+            data = data.copy()
+            data['age_range'] = age_bucketer(data['age'])
+            data['geopolygon'] = geopolygon_bucketer(data['city'])
+            data = data.drop(labels=['user_full_name', 'email', 'phone', //
+            'age', 'city'])
+            
+        return data
+    
+    def _encode_entry(self, data):
+        """
+        Prepares data entry for hashing
+        """
+        proc_data = str(data)
+        encoded_data = proc_data.encode('utf-8')
+        return encoded_data
+        
+    def _store_leaf(self, data, digest):
+        """
+        Stores data hash in a new leaf and returns index
+        """
+        self.hashes += [digest]
+
+        return len(self.hashes)
+
+
+    def _get_leaf(self, index):
+        """
+        Returns the hash stored by the leaf specified
+        """
+        value = self.hashes[index - 1]
+
+        return value
+
+
+    def _get_leaves(self, offset, width):
+        """
+        Returns hashes corresponding to the specified leaf range
+        """
+        values = self.hashes[offset: offset + width]
+
+        return values
+
+
+    def _get_size(self):
+        """
+        Returns the current number of leaves
+        """
+        return len(self.hashes)
+\end{verbatim}
+\section{Verification of inclusion}\label{code:verification}
+\begin{verbatim}
+from pymerkle import verify_inclusion
+
+prove_tree_true = FixmeTree(algorithm='sha256')
+prove_tree_true.append_entry('male')
+
+proof = tree_medium.prove_inclusion(2,8)
+base = prove_tree_true.get_leaf(1)
+root = tree_medium.get_state(8)
+
+verify_inclusion(base, root, proof)
+\end{verbatim}
+\section{Large scale Merkle tree encoding}\label{code:large_examp}
+\begin{verbatim}
+encoded_df = []
+
+for i in range(len(df)):
+    entry = None
+    locals()["user_tree_" + str(i)] = FixmeTree(algorithm='sha256')
+    data = FixmeTree.preprocess_entry(df.iloc[i])
+    for j in range(len(data)):
+        locals()["user_tree_" + str(i)].append_entry(data[j])
+    encoded_df.append(locals()["user_tree_" + str(i)])
+
+hex_data = pd.DataFrame(encoded_df)
+hex_data
+\end{verbatim}
+\section{Large-scale example attribute matching}\label{code:large_verif}
+\begin{verbatim}
+def test_geolocation_match(dataframe:pd.DataFrame, criteria: str, attribute: int):
+    from pymerkle import verify_inclusion, InvalidProof
+    
+    matching_users = []
+
+    query_tree = FixmeTree(algorithm='sha256')
+    query_tree.append_entry(criteria)
+    base = query_tree.get_leaf(1)
+
+    for i in range(len(dataframe)):
+        user_tree = dataframe.iloc[i][0]
+
+        proof = user_tree.prove_inclusion(attribute, 8)
+        root = user_tree.get_state(8)
+
+        try:
+            verify_inclusion(base, root, proof)
+            matching_users.append(i)
+        except InvalidProof:
+            continue
+
+    return matching_users
+\end{verbatim}
 
 \end{document}

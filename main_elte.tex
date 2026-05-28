@@ -619,7 +619,7 @@ The program requires:
 Package versions are not the minimum required versions, but the ones used in the creation of the PoC at the time of the writing of this study.
 For computations my personal computer was used, with a 11th Gen Intel(R) Cote(TM) i3-1115G4 @ 3.00GHz processor and 8 GBs of RAM. The runtimes should be considered accordingly.
 
-\subsection{Data generation}
+\section{Data generation}
 It is neither reasonable nor in the spirit of the study to use real user data for the proof of concept. This means test data has to be generated in order for the system to be properly tested. For this I used the script found in section \ref{code:datagen}. The following bash command was used to generate the data:
 \begin{verbatim}
     python3 ./generate_table_csv_data.py 
@@ -636,7 +636,7 @@ The output was saved in the file ./generated\_table\_data/users.csv in the repos
 \end{figure}
 
 
-\subsection{Proof of concept}
+\section{Proof of concept}
 For better showcasing the proof of concept was written in a jupyter notebook, named merkel\_encoder\_PoC.ipynb. The first step is to read the generated user data, I used pandas for that. Output can be seen in Figure \ref{fig:output_1}.
 \begin{figure}[H]
     \centering
@@ -747,7 +747,7 @@ In this thesis a PoC was created for a Merkle tree-based, privacy preserving con
 
 
 \chapter{Source code}
-The whole repository can be found in GitHub: [repo] \\% TODO
+The whole repository can be found in GitHub: \href{https://github.com/balintpragai/elte_aalto_thesis}{Repository}
 \section{Data generator script}\label{code:datagen}
 \begin{verbatim}
 import argparse
